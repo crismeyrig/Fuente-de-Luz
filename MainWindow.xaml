@@ -5,8 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fuente_de_Luz"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Menu Principal" Height="400" Width="500">
     <Grid>
+
+    <StackPanel>
+          
+                    <Menu IsMainMenu="True" VerticalAlignment="Top">
+                <MenuItem Header="Registros">
+                <MenuItem x:Name="rUsuariosMenuItem"   Header="Registrar Usuarios" Click="rUsuariosMenuItem_Click" />
+                <MenuItem x:Name="rClientesMenuItem"   Header="Registrar Clientes" Click="rClientesMenuItem_Click" />
+                    
+                </MenuItem>
+
+                <MenuItem Header="Consultas">
+                <MenuItem x:Name="cUsuariosMenuItem"  Header="Consultar Usuarios" Click="cUsuariosMenuItem_Click" />
+                    
+                    
+                </MenuItem>
+
+                <MenuItem Header="Ayuda">
+                    <Menu/>
+                </MenuItem>
+
+                <StackPanel Orientation="Vertical"  Height="50,0" Width="50,0"   HorizontalAlignment="Center" VerticalAlignment="Center">
+                      <Image Source="/Resources/Home.png" Width="70"/>
+                       <Label Content="Menú Principal" FontWeight="Bold" Height="50" FontSize="36" HorizontalAlignment="Center" />
+
+                </StackPanel>
+
+
+            </Menu>
+        </StackPanel>
+        
+       
+
+    
 
     </Grid>
 </Window>

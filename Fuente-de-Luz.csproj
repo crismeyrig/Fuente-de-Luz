@@ -19,8 +19,41 @@
     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-    <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+
+   <ItemGroup>
+
+              <None Remove="Resources/Buscar.png"/>
+              <None Remove="Resources/Eliminar.png"/>
+              <None Remove="Resources/Guardar.png"/>
+              <None Remove="Resources/nuevo.png"/>
+              <None Remove="Resources/Usuarios.png"/>
+              <None Remove="Resources/Entrar.png"/>
+              <None Remove="Resources/Usuario.png"/>
+              <None Remove="Resources/Candado.png"/>
+              <None Remove="Resources/Home.png"/>
+              <None Remove="Resources/Agendar.png"/>
+              <None Remove="Resources/Lista.png"/>
+            
+            
+          </ItemGroup>
+
+           <ItemGroup>
+  
+            <Resource Include="Resources/Eliminar.png"/>
+            <Resource Include="Resources/Guardar.png"/>
+            <Resource Include="Resources/nuevo.png"/>
+            <Resource Include="Resources/Buscar.png"/>
+            <Resource Include="Resources/Usuarios.png"/>
+            <Resource Include="Resources/Entrar.png"/>
+            <Resource Include="Resources/Usuario.png"/>
+            <Resource Include="Resources/Cancelar.png"/>
+            <Resource Include="Resources/Candado.png"/>
+            <Resource Include="Resources/Home.png"/>
+            <Resource Include="Resources/Agendar.png"/>
+            <Resource Include="Resources/Lista.png"/>
+
+            </ItemGroup>
+
+
 
 </Project>
