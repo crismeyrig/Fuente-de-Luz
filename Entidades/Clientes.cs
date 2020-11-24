@@ -16,6 +16,7 @@ namespace Fuente_de_Luz.Entidades
         public String Apellido { get; set; }
         public String Cedula { get; set; }
         public String Telefono { get; set; }
+        public String Celular { get; set; }
         public String Direccion { get; set; }
         public String Email { get; set; }
         public String Genero { get; set; }

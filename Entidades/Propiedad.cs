@@ -12,6 +12,10 @@ namespace Fuente_de_Luz.Entidades
         [Key]
         public int PropiedadId { get; set; }
         public int Metros { get; set; }
+
+        public String Nombres { get; set; }
+
+        public String Descripcion { get; set; }
         public decimal Costo { get; set; }
         public decimal Precio { get; set; } 
         public String Ubicacion{get; set;}
@@ -19,10 +23,9 @@ namespace Fuente_de_Luz.Entidades
 
         public String Seccion{ get; set;}
 
-        public int TipoId{get; set;}
+        public int UsuarioId{get; set;}
 
-        public String Fila{get; set;}
-
+        
 
       
  

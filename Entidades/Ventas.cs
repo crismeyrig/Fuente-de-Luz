@@ -20,9 +20,9 @@ namespace Fuente_de_Luz.Entidades
 
         public decimal Descuento {get; set;}
 
-        public int Cuotas{get; set;}
+        public int NumCuotas{get; set;}
 
-        public int ValorInicial{get; set;}
+        public int Valor{get; set;}
 
         public String Comentario{get; set;}
 
@@ -30,16 +30,12 @@ namespace Fuente_de_Luz.Entidades
 
         public String TipoNegocio{get; set;}
 
-        public String NombreFallecido {get; set;}
+        public int UsuarioId { get; set; }
 
-        public String ApellidoFallecido{get; set;}
-
-        public DateTime FechaFallecido{get; set;}
+        
 
 
-        [ForeignKey("VentaId")]
-        public virtual List<VentasDetalle> VentasDetalle { get; set; }
-
+        
        
 
         

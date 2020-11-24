@@ -14,8 +14,14 @@ namespace Fuente_de_Luz.Entidades
         public int VentaId { get; set; }
         public decimal BalanceAnterio { get; set; }
 
+        public decimal BalancePendiente { get; set; }
+
         public decimal Monto { get; set; }        
         public decimal Descuento { get; set; }
+
+         public int UsuarioId{ get; set; }
+
+
 
         [ForeignKey("PagoId")]
         public virtual List<PagosDetalle> PagosDetalle { get; set; }

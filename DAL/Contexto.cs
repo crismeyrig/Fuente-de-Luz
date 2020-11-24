@@ -11,7 +11,6 @@ namespace Fuente_de_Luz.DAL
         public DbSet<Clientes> Clientes { get; set; } 
         public DbSet<Propiedad> Propiedad { get; set; } 
         public DbSet<Cuotas> Cuotas { get; set; }
-        public DbSet<Productos> Productos{ get; set; }
         public DbSet<Ventas> Ventas { get; set; }
         public DbSet<Pagos> Pagos{ get; set; }
 
@@ -19,7 +18,7 @@ namespace Fuente_de_Luz.DAL
 
         public DbSet<Referidos> Referidos{ get; set; }
 
-        public DbSet<TipoPropiedad> TipoPropiedad{ get; set; }
+        
         
         
 

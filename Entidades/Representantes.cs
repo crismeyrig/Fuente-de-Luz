@@ -19,6 +19,8 @@ namespace Fuente_de_Luz.Entidades
 
         public String Direccion{ get; set; }
 
+        public int UsuarioId { get; set; }
+
        
         
         

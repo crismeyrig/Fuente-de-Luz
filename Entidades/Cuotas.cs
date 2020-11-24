@@ -19,7 +19,11 @@ namespace Fuente_de_Luz.Entidades
 
         public decimal Balence { get; set; }
 
-        public decimal Descuento { get; set; }
+        public int Valor { get; set; }
+
+        public int NumCuota { get; set; }
+
+        public int UsuarioId { get; set; }
         
         
         

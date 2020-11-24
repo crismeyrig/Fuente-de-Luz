@@ -17,7 +17,9 @@ namespace Fuente_de_Luz.Migrations
                     Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Monto = table.Column<decimal>(type: "TEXT", nullable: false),
                     Balence = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Descuento = table.Column<decimal>(type: "TEXT", nullable: false)
+                    Valor = table.Column<int>(type: "INTEGER", nullable: false),
+                    NumCuota = table.Column<int>(type: "INTEGER", nullable: false),
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,28 +35,14 @@ namespace Fuente_de_Luz.Migrations
                     Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
                     VentaId = table.Column<int>(type: "INTEGER", nullable: false),
                     BalanceAnterio = table.Column<decimal>(type: "TEXT", nullable: false),
+                    BalancePendiente = table.Column<decimal>(type: "TEXT", nullable: false),
                     Monto = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Descuento = table.Column<decimal>(type: "TEXT", nullable: false)
+                    Descuento = table.Column<decimal>(type: "TEXT", nullable: false),
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Pagos", x => x.PagoId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Productos",
-                columns: table => new
-                {
-                    ProductoId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Nombres = table.Column<string>(type: "TEXT", nullable: true),
-                    Descripcion = table.Column<string>(type: "TEXT", nullable: true),
-                    Costo = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Precio = table.Column<decimal>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Productos", x => x.ProductoId);
                 });
 
             migrationBuilder.CreateTable(
@@ -64,13 +52,14 @@ namespace Fuente_de_Luz.Migrations
                     PropiedadId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Metros = table.Column<int>(type: "INTEGER", nullable: false),
+                    Nombres = table.Column<string>(type: "TEXT", nullable: true),
+                    Descripcion = table.Column<string>(type: "TEXT", nullable: true),
                     Costo = table.Column<decimal>(type: "TEXT", nullable: false),
                     Precio = table.Column<decimal>(type: "TEXT", nullable: false),
                     Ubicacion = table.Column<string>(type: "TEXT", nullable: true),
                     NOPropiedad = table.Column<int>(type: "INTEGER", nullable: false),
                     Seccion = table.Column<string>(type: "TEXT", nullable: true),
-                    TipoId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Fila = table.Column<string>(type: "TEXT", nullable: true)
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -86,7 +75,8 @@ namespace Fuente_de_Luz.Migrations
                     VentaId = table.Column<int>(type: "INTEGER", nullable: false),
                     Nombre = table.Column<string>(type: "TEXT", nullable: true),
                     Cedula = table.Column<int>(type: "INTEGER", nullable: false),
-                    Direccion = table.Column<string>(type: "TEXT", nullable: true)
+                    Direccion = table.Column<string>(type: "TEXT", nullable: true),
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -102,24 +92,12 @@ namespace Fuente_de_Luz.Migrations
                     VentaId = table.Column<int>(type: "INTEGER", nullable: false),
                     Nombre = table.Column<string>(type: "TEXT", nullable: true),
                     Cedula = table.Column<int>(type: "INTEGER", nullable: false),
-                    Direccion = table.Column<string>(type: "TEXT", nullable: true)
+                    Direccion = table.Column<string>(type: "TEXT", nullable: true),
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Representantes", x => x.RepresentanteId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "TipoPropiedad",
-                columns: table => new
-                {
-                    TipoPropiedadId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Nombre = table.Column<string>(type: "TEXT", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TipoPropiedad", x => x.TipoPropiedadId);
                 });
 
             migrationBuilder.CreateTable(
@@ -152,14 +130,12 @@ namespace Fuente_de_Luz.Migrations
                     Balance = table.Column<decimal>(type: "TEXT", nullable: false),
                     PropiedadId = table.Column<int>(type: "INTEGER", nullable: false),
                     Descuento = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Cuotas = table.Column<int>(type: "INTEGER", nullable: false),
-                    ValorInicial = table.Column<int>(type: "INTEGER", nullable: false),
+                    NumCuotas = table.Column<int>(type: "INTEGER", nullable: false),
+                    Valor = table.Column<int>(type: "INTEGER", nullable: false),
                     Comentario = table.Column<string>(type: "TEXT", nullable: true),
                     FechaPrimerPago = table.Column<DateTime>(type: "TEXT", nullable: false),
                     TipoNegocio = table.Column<string>(type: "TEXT", nullable: true),
-                    NombreFallecido = table.Column<string>(type: "TEXT", nullable: true),
-                    ApellidoFallecido = table.Column<string>(type: "TEXT", nullable: true),
-                    FechaFallecido = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -201,6 +177,7 @@ namespace Fuente_de_Luz.Migrations
                     Apellido = table.Column<string>(type: "TEXT", nullable: true),
                     Cedula = table.Column<string>(type: "TEXT", nullable: true),
                     Telefono = table.Column<string>(type: "TEXT", nullable: true),
+                    Celular = table.Column<string>(type: "TEXT", nullable: true),
                     Direccion = table.Column<string>(type: "TEXT", nullable: true),
                     Email = table.Column<string>(type: "TEXT", nullable: true),
                     Genero = table.Column<string>(type: "TEXT", nullable: true),
@@ -219,28 +196,6 @@ namespace Fuente_de_Luz.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "VentasDetalle",
-                columns: table => new
-                {
-                    VentasDetalleId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    VentaId = table.Column<int>(type: "INTEGER", nullable: false),
-                    PoductoId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Costo = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Precio = table.Column<decimal>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_VentasDetalle", x => x.VentasDetalleId);
-                    table.ForeignKey(
-                        name: "FK_VentasDetalle_Ventas_VentaId",
-                        column: x => x.VentaId,
-                        principalTable: "Ventas",
-                        principalColumn: "VentaId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "UsuarioId", "Apellidos", "Contrasena", "Email", "FechaCreacion", "NombreUsuario", "Nombres" },
@@ -255,11 +210,6 @@ namespace Fuente_de_Luz.Migrations
                 name: "IX_PagosDetalle_PagoId",
                 table: "PagosDetalle",
                 column: "PagoId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_VentasDetalle_VentaId",
-                table: "VentasDetalle",
-                column: "VentaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -274,9 +224,6 @@ namespace Fuente_de_Luz.Migrations
                 name: "PagosDetalle");
 
             migrationBuilder.DropTable(
-                name: "Productos");
-
-            migrationBuilder.DropTable(
                 name: "Propiedad");
 
             migrationBuilder.DropTable(
@@ -286,19 +233,13 @@ namespace Fuente_de_Luz.Migrations
                 name: "Representantes");
 
             migrationBuilder.DropTable(
-                name: "TipoPropiedad");
-
-            migrationBuilder.DropTable(
-                name: "VentasDetalle");
+                name: "Ventas");
 
             migrationBuilder.DropTable(
                 name: "Usuarios");
 
             migrationBuilder.DropTable(
                 name: "Pagos");
-
-            migrationBuilder.DropTable(
-                name: "Ventas");
         }
     }
 }
