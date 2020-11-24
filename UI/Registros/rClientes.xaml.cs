@@ -24,6 +24,8 @@ namespace Fuente_de_Luz.UI.Registros
             UsuarioIdComboBox.ItemsSource = UsuariosBLL.GetUsuarios();
             UsuarioIdComboBox.SelectedValuePath = "UsuarioId";
             UsuarioIdComboBox.DisplayMemberPath = "NombreUsuario";
+
+            
         }
        
         private void Cargar()
@@ -163,6 +165,20 @@ namespace Fuente_de_Luz.UI.Registros
                     DireccionTextBox.Focus();
                     return;
                 }
+                if (CelularTextBox.Text.Trim() == string.Empty)
+                {
+                    MessageBox.Show("El Campo (Teléfono) está vacío.\n\nAsigne un Teléfono al Cliente.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    CelularTextBox.Text = "0";
+                    CelularTextBox.Focus();
+                    CelularTextBox.SelectAll();
+                    return;
+                }
+                if (CelularTextBox.Text.Length != 10)
+                {
+                    MessageBox.Show($"El Celular ({CelularTextBox.Text}) no es válido.\n\nEl Celular debe tener 10 dígitos (0-9).", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    CelularTextBox.Focus();
+                    return;
+                }
                 
                 if (EmailTextBox.Text.Trim() == string.Empty)
                 {
@@ -179,20 +195,22 @@ namespace Fuente_de_Luz.UI.Registros
                     EstadoCivilTextBox.Focus();
                     return;
                 }
-                 if (OcupacionTextBox.Text.Trim() == string.Empty)
+                if (OcupacionTextBox.Text.Trim() == string.Empty)
                 {
-                    MessageBox.Show("El Campo (Ocupacion) está vacío.\n\nAsigne un Ocupacion al Cliente.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("El Campo (Nombres) está vacío.\n\nAsigne un Nombre al Cliente.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                     OcupacionTextBox.Clear();
                     OcupacionTextBox.Focus();
                     return;
                 }
-                 if (ReligionTextBox.Text.Trim() == string.Empty)
+                if (ReligionTextBox.Text.Trim() == string.Empty)
                 {
-                    MessageBox.Show("El Campo (Religion) está vacío.\n\nAsigne un Religion al Cliente.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("El Campo (Nombres) está vacío.\n\nAsigne un Nombre al Cliente.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                     ReligionTextBox.Clear();
                     ReligionTextBox.Focus();
                     return;
                 }
+                
+                 
                 
                 var paso = ClientesBLL.Guardar(clientes);
                 if (paso)
@@ -287,6 +305,32 @@ namespace Fuente_de_Luz.UI.Registros
                 TelefonoTextBox.Text = "0";
                 TelefonoTextBox.Focus();
                 TelefonoTextBox.SelectAll();
+            }
+        }
+        private void CelularTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                if (CelularTextBox.Text.Trim() != string.Empty)
+                {
+                    long.Parse(CelularTextBox.Text);
+                }
+
+                if (CelularTextBox.Text.Length != 10)
+                {
+                    CelularTextBox.Foreground = Brushes.Red;
+                }
+                else
+                {
+                    CelularTextBox.Foreground = Brushes.Black;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("El valor digitado en el campo (Celular) no es un número.\n\nPor favor, digite un número.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                CelularTextBox.Text = "0";
+                CelularTextBox.Focus();
+                CelularTextBox.SelectAll();
             }
         }
     }

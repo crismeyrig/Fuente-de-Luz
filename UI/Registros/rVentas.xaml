@@ -1,25 +1,23 @@
-<Window x:Class="Fuente_de_Luz.UI.Registros.rClientes"
+<Window x:Class="Fuente_de_Luz.UI.Registros.rVentas"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fuente_de_Luz.UI.Registros"
-        xmlns:convertidor="clr-namespace:Fuente_de_Luz.Resources.Extra"
+        
         mc:Ignorable="d"
-        Title="Registro  Cliente" Height="600" Width="650"  Icon="/Resources/Agendar.png" ResizeMode="CanMinimize" >
-      <Window.Resources>
-           <convertidor:GenderConverter x:Key="GenderConverter"/>
-        </Window.Resources>
+        Title="Registro Ventas" Height="700" Width="650"  Icon="/Resources/Agendar.png" ResizeMode="CanMinimize" >
+      
     
     <Grid>
         <StackPanel Orientation="Vertical" >
             <StackPanel Orientation="Horizontal">
-                <Label Content="Cliente Id" FontWeight="Bold" FontSize="16" />
+                <Label Content="Venta Id" FontWeight="Bold" FontSize="16" />
                 <Label Content="Usuario Id" FontWeight="Bold" FontSize="16" Margin="98,0"/>
             </StackPanel>
             <!--——————————————————————————————————————————————[ BUSCAR ]——————————————————————————————————————————————-->
             <StackPanel Orientation="Horizontal" Height="35">
-                <TextBox x:Name="ClienteIdTextBox" Text="{Binding ClienteId}" Width="150" Margin="5,0" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" TextChanged="ClienteIdTextbox_TextChanged"/>
+                <TextBox x:Name="VentaIdTextBox" Text="{Binding VentaId}" Width="150" Margin="5,0" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center"/>
                 <!--—————————————————————————————[ Usuario Id ]—————————————————————————————-->
                 <ComboBox x:Name="UsuarioIdComboBox" SelectedValue="{Binding UsuarioId}" VerticalContentAlignment="Center" Width="100" Margin="20,0,0,0" />
                 <!--—————————————————————————————[ Boton Buscar ]—————————————————————————————-->
@@ -35,60 +33,77 @@
             <!--——————————————————————————————————————————————[ Nombres y Apellidos]——————————————————————————————————————————————-->
             <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
                 <!--—————————————————————————————[ Nombres ]—————————————————————————————-->
-                <Label Content="Nombres" FontWeight="Bold"/>
-                <TextBox x:Name="NombresTextBox" Text="{Binding Nombres}" Height="30" VerticalContentAlignment="Center" Width="200" Margin="0,0,10,0"/>
+                <Label Content="Cliente Id" FontWeight="Bold"/>
+                <ComboBox x:Name="ClienteIdComboBox" SelectedValue="{Binding ClienteId}" VerticalContentAlignment="Center" Width="200" Margin="20,0,0,0" />
                 <!--—————————————————————————————[ Apellidos ]—————————————————————————————-->
-                <Label Content="Apellidos" FontWeight="Bold"/>
-                <TextBox x:Name="ApellidoTextBox" Text="{Binding Apellido}" Height="30" VerticalContentAlignment="Center" Width="200"/>
+                
             </StackPanel>
-            <!--——————————————————————————————————————————————[ Cedula y Genero ]——————————————————————————————————————————————-->
-            <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
-                <!--—————————————————————————————[ Cedula ]—————————————————————————————-->
-                <Label Content="    Cédula" FontWeight="Bold"/>
-                <TextBox x:Name="CedulaTextBox" Text="{Binding Cedula}" Height="30" VerticalContentAlignment="Center" Width="200" Margin="0,0,20,0" TextChanged="CedulaTextBox_TextChanged" MaxLength="11"/>
-                <!--—————————————————————————————[ Generos ]—————————————————————————————-->
-                <Label Content="Género: " FontWeight="Bold"/>
-                <RadioButton x:Name="FemeninoRadioButton" GroupName="Generos" Content="Femenino" 
-                             IsChecked="{Binding Genero, Converter={StaticResource ResourceKey=GenderConverter}, ConverterParameter=Femenino}" 
-                             Margin="0,0,20,0" VerticalContentAlignment="Center"/>
-                <RadioButton x:Name="MasculinoRadioButton" GroupName="Generos" Content="Masculino" 
-                             IsChecked="{Binding Genero, Converter={StaticResource ResourceKey=GenderConverter}, ConverterParameter=Masculino}" 
-                              VerticalContentAlignment="Center"/>
-            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
+                <!--—————————————————————————————[ Nombres ]—————————————————————————————-->
+                <Label Content="Pripiedad Id" FontWeight="Bold"/>
+                <TextBox x:Name="PripiedadIdTextBox" Text="{Binding PropiedadId}" Height="30" VerticalContentAlignment="Center" Width="200" Margin="0,0,10,0"/>
+           </StackPanel>
             <!--——————————————————————————————————————————————[ Telefono y FechaNacimiento ]——————————————————————————————————————————————-->
             <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
                 <!--—————————————————————————————[ Telefono ]—————————————————————————————-->
-                <Label Content=" Teléfono" FontWeight="Bold"/>
-                <TextBox x:Name="TelefonoTextBox" Text="{Binding Telefono}" Height="30" VerticalContentAlignment="Center" Width="200" Margin="0,0,10,0" TextChanged="TelefonoTextBox_TextChanged" MaxLength="10"/>
+                
                 <!--—————————————————————————————[ FechaNacimiento ]—————————————————————————————-->
                 <Label Content="Fecha Nacimiento" FontWeight="Bold"/>
-                <DatePicker x:Name="FechaDatePicker" SelectedDate="{Binding Fecha}" Height="30" VerticalContentAlignment="Center" Width="150"/>
+                <DatePicker x:Name="FechaDatePicker" SelectedDate="{Binding Fecha}" Height="30" VerticalContentAlignment="Center" Width="170"/>
             </StackPanel>
             <!--——————————————————————————————————————————————[ Direccion ]——————————————————————————————————————————————-->
             <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
                 <!--—————————————————————————————[ Nombres ]—————————————————————————————-->
-                <Label Content="Dirección" FontWeight="Bold"/>
-                <TextBox x:Name="DireccionTextBox" Text="{Binding Direccion}" Height="30" VerticalContentAlignment="Center" Width="200" Margin="0,0,10,0"/>
+                <Label Content="NumCuota" FontWeight="Bold"/>
+                <TextBox x:Name="NumCuotaTextBox" Text="{Binding NumCuota}" Height="30" VerticalContentAlignment="Center" Width="200" Margin="0,0,10,0"/>
            </StackPanel>
 
            <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
                 <!--—————————————————————————————[ Nombres ]—————————————————————————————-->
-                <Label Content="Celular" FontWeight="Bold"/>
-                <TextBox x:Name="CelularTextBox" Text="{Binding Celular}" Height="30" VerticalContentAlignment="Center" Width="200" Margin="15,0,30,0" TextChanged="CelularTextBox_TextChanged" MaxLength="10" />
+                <Label Content="Valor" FontWeight="Bold"/>
+                <TextBox x:Name="ValorTextBox" Text="{Binding Valor}" Height="30" VerticalContentAlignment="Center" Width="200" Margin="30,0,10,0" />
            </StackPanel>
 
-            <Label Content="Email" FontWeight="Bold"/>
-            <TextBox x:Name="EmailTextBox" Text="{Binding Email}" Height="30" VerticalContentAlignment="Center"/>
-              
-             <Label Content="Estado Civil" FontWeight="Bold"/>
-            <TextBox x:Name="EstadoCivilTextBox" Text="{Binding EstadoCivil}" Height="30" VerticalContentAlignment="Center"/>
+           <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
+                <!--—————————————————————————————[ Nombres ]—————————————————————————————-->
+                <Label Content="Monto" FontWeight="Bold"/>
+                <TextBox x:Name="MontoTextBox" Text="{Binding Monto}" Height="30" VerticalContentAlignment="Center" Width="200" Margin="20,0,10,0" />
+           </StackPanel>
 
-            <Label Content="Ocupación" FontWeight="Bold"/>
-             <TextBox x:Name="OcupacionTextBox" Text="{Binding Ocupacion}" Height="30" VerticalContentAlignment="Center"/>
+           <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
+                <!--—————————————————————————————[ Nombres ]—————————————————————————————-->
+                <Label Content="Descuentos" FontWeight="Bold"/>
+                <TextBox x:Name="DescuentoTextBox" Text="{Binding Descuento}" Height="30" VerticalContentAlignment="Center" Width="200" Margin="5,0,10,0" />
+           </StackPanel>
+
+           <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
+                <!--—————————————————————————————[ Nombres ]—————————————————————————————-->
+                <Label Content="Balance" FontWeight="Bold"/>
+                <TextBox x:Name="BalanceTextBox" Text="{Binding Balance}" Height="30" VerticalContentAlignment="Center" Width="200" Margin="20,0,10,0" />
+           </StackPanel>
+
+           <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                <!--—————————————————————————————[ Telefono ]—————————————————————————————-->
+                
+                <!--—————————————————————————————[ FechaNacimiento ]—————————————————————————————-->
+                <Label Content="Fecha Primer Pago" FontWeight="Bold"/>
+                <DatePicker x:Name="FechaPrimerPagoDatePicker" SelectedDate="{Binding FechaPrimerPago}" Height="30" VerticalContentAlignment="Center" Width="170"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
+                <!--—————————————————————————————[ Nombres ]—————————————————————————————-->
+                <Label Content="Tipo Negocio" FontWeight="Bold"/>
+                <TextBox x:Name="TipoNegocioTextBox" Text="{Binding TipoNegocio}" Height="30" VerticalContentAlignment="Center" Width="200" Margin="5,0,10,0" />
+           </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
+                <!--—————————————————————————————[ Nombres ]—————————————————————————————-->
+                <Label Content="Comentario" FontWeight="Bold"/>
+                <TextBox x:Name="ComentarioTextBox" Text="{Binding Comentario}" Height="30" VerticalContentAlignment="Center" Width="200" Margin="15,0,10,0" />
+           </StackPanel>
+
             
-
-            <Label Content="Religión" FontWeight="Bold"/>
-             <TextBox x:Name="ReligionTextBox" Text="{Binding Religion}" Height="30" VerticalContentAlignment="Center"/>
             <!--——————————————————————————————————————————————[ BOTON NUEVO ]——————————————————————————————————————————————-->
             <StackPanel Orientation="Horizontal" Margin="0,15">
                 <Button x:Name="NuevoButton" Margin="10,0" Width="80" Click ="NuevoButton_Click">

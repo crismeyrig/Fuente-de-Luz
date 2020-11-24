@@ -11,15 +11,17 @@ namespace Fuente_de_Luz.Entidades
         [Key]
         public int ReferidoId { get; set; }
 
+        public int UsuarioId { get; set; }
+
         public int VentaId { get; set; }
 
         public String Nombre{get; set;}
 
-        public int Cedula{ get; set; }        
+        public String Cedula{ get; set; }        
 
         public String Direccion{ get; set; }
 
-        public int UsuarioId { get; set; }
+       
 
        
         

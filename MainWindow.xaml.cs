@@ -41,9 +41,34 @@ namespace Fuente_de_Luz
             rClientes  ventana = new rClientes ();
             ventana.Show();
         }
+        private void rReferidosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rReferidos  ventana = new rReferidos ();
+            ventana.Show();
+        }
+        private void rRepresentantesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rRepresentantes  ventana = new rRepresentantes ();
+            ventana.Show();
+        }
+        private void rVentasMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rVentas  ventana = new rVentas ();
+            ventana.Show();
+        }
+        private void rCuotasMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rCuotas  ventana = new rCuotas ();
+            ventana.Show();
+        }
         private void cUsuariosMenuItem_Click(object sender, RoutedEventArgs e)
         {
             cUsuarios ventana = new cUsuarios();
+            ventana.Show();
+        }
+        private void cClientesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cClientes ventana = new cClientes();
             ventana.Show();
         }
         private void AyudaMenu_Click(object sender, RoutedEventArgs e)

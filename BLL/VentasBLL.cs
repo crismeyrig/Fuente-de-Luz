@@ -109,7 +109,7 @@ namespace Fuente_de_Luz.BLL
 
             try
             {
-                ventas = (Ventas)context.Ventas.Find(id);
+                ventas= (Ventas)context.Ventas.Find(id);
             }
             catch (Exception)
             {
