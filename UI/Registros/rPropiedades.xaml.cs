@@ -92,10 +92,10 @@ namespace Fuente_de_Luz.UI.Registros
                     
                     return;
                 }
-                if (PropiedadComboBox.Text.Trim() == string.Empty)
+                if (PropiedadTextBox.Text.Trim() == string.Empty)
                 {
                     MessageBox.Show("El Campo (Nombre) está vacío.\n\nAsigne un Nombre al Cliente.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    PropiedadComboBox.Focus();
+                    PropiedadTextBox.Focus();
                     return;
                 }
                 if (DescripcionTextBox.Text.Trim() == string.Empty)

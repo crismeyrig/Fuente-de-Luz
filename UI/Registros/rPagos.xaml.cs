@@ -62,7 +62,7 @@ namespace Fuente_de_Luz.UI.Registros
             }
         }
         //——————————————————————————————————————————————————————————————[ Agregar Fila ]———————————————————————————————————————————————————————————————
-        private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
+      /*  private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
             //—————————————————————————————————[ pago Id ]—————————————————————————————————
             if (CuotaIdTextBox.Text == 0)
@@ -105,7 +105,7 @@ namespace Fuente_de_Luz.UI.Registros
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
             Limpiar();
-            PagoIdTextBox.Text = "0";
+            PagoIdTextBox.Text = 0;
         }
         //——————————————————————————————————————————————————————————————[ Guardar ]———————————————————————————————————————————————————————————————
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
@@ -115,7 +115,7 @@ namespace Fuente_de_Luz.UI.Registros
                     return;
 
                 //—————————————————————————————————[ Pago Id ]—————————————————————————————————
-                if (PagoIdTextbox.Text = 0)
+                if (PagoIdTextBox.Text = "0";
                 {
                     MessageBox.Show("El Campo (Devolución Id) está vacío.\n\nAsigne un Id al Préstamo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                     PagoIdTextbox.Text = "0";
@@ -155,7 +155,7 @@ namespace Fuente_de_Luz.UI.Registros
                 else
                     MessageBox.Show("No se pudo eliminar el registro", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
+        } */
         
     } 
 }
