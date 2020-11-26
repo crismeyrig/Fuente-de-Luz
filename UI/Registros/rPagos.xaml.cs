@@ -1,4 +1,6 @@
+using System;
 using System.Windows;
+using System.Windows.Controls;
 using Fuente_de_Luz.BLL;
 using Fuente_de_Luz.Entidades;
 
@@ -6,34 +8,37 @@ namespace Fuente_de_Luz.UI.Registros
 {
     public partial class rPagos : Window
     {
-        private Pagos Pagos = new Pagos();
+        private Pagos pagos = new Pagos();
         public rPagos()
         {
             InitializeComponent();
-            this.DataContext = Pagos;
+            this.DataContext = pagos;
+            //—————————————————————————————————————[ ComboBox UsuarioId ]—————————————————————————————————————
+            UsuarioIdComboBox.ItemsSource = UsuariosBLL.GetUsuarios();
+            UsuarioIdComboBox.SelectedValuePath = "UsuarioId";
+            UsuarioIdComboBox.DisplayMemberPath = "Nombres";
 
-         
         }
         //——————————————————————————————————————————————————————————————[ Cargar ]———————————————————————————————————————————————————————————————
         private void Cargar()
         {
             this.DataContext = null;
-            this.DataContext = Pagos;
+            this.DataContext = pagos;
         }
         //——————————————————————————————————————————————————————————————[ Limpiar ]——————————————————————————————————————————————————————————————
         private void Limpiar()
         {
-            this.Pagos = new Pagos();
-            this.DataContext = Pagos;
+            this.pagos = new Pagos();
+            this.DataContext = pagos;
         }
         //——————————————————————————————————————————————————————————————[ Validar ]——————————————————————————————————————————————————————————————
         private bool Validar()
         {
             bool Validado = true;
-            if (PagoIdTextBox.Text.Length == 0)
+            if (PagoIdTextbox.Text.Length == 0)
             {
                 Validado = false;
-                MessageBox.Show("Indique el Id Pago", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Debe indicar el Id Pago", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             return Validado;
@@ -41,27 +46,66 @@ namespace Fuente_de_Luz.UI.Registros
         //——————————————————————————————————————————————————————————————[ Buscar ]———————————————————————————————————————————————————————————————
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            Pagos encontrado = PagosBLL.Buscar(Utilidades.ToInt(PagoIdTextBox.Text));
+            Pagos encontrado = PagosBLL.Buscar(pagos.PagoId);
 
             if (encontrado != null)
             {
-                this.Pagos = encontrado;
+                pagos = encontrado;
                 Cargar();
             }
             else
             {
-                this.Pagos = new Pagos();
-                this.DataContext = this.Pagos;
-                MessageBox.Show($"Este Id Pago no fue encontrado.\n\nAsegúrese que existe.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show($"Este Pago no fue encontrado.\n\nAsegúrese que existe o cree una nueva.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                 Limpiar();
-                PagoIdTextBox.SelectAll();
-                PagoIdTextBox.Focus();
+                PagoIdTextbox.SelectAll();
+                PagoIdTextbox.Focus();
+            }
+        }
+        //——————————————————————————————————————————————————————————————[ Agregar Fila ]———————————————————————————————————————————————————————————————
+        private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
+        {
+            //—————————————————————————————————[ pago Id ]—————————————————————————————————
+            if (CuotaIdTextBox.Text == 0)
+            {
+                MessageBox.Show("El Campo (Cuota Id) está vacío.\n\nPorfavor, Seleccione la Cuota.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                
+                return;
+            }
+            
+
+            var filaDetalle = new PagosDetalle
+            {
+                Id = this.pagos.PagoId,
+
+            };
+            
+
+           
+            
+        }
+        //——————————————————————————————————————————————————————————————[ Remover Fila ]———————————————————————————————————————————————————————————————
+        private void RemoverFilaButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+               
+                if (DetalleDataGrid.Items.Count >= 1 && DetalleDataGrid.SelectedIndex <= DetalleDataGrid.Items.Count - 1)
+                {
+                    pagos.PagosDetalle.RemoveAt(DetalleDataGrid.SelectedIndex);
+                    
+                    Cargar();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("No has seleccionado ninguna Fila\n\nSeleccione la Fila a Remover.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
         //——————————————————————————————————————————————————————————————[ Nuevo ]———————————————————————————————————————————————————————————————
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
             Limpiar();
+            PagoIdTextBox.Text = "0";
         }
         //——————————————————————————————————————————————————————————————[ Guardar ]———————————————————————————————————————————————————————————————
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
@@ -70,58 +114,40 @@ namespace Fuente_de_Luz.UI.Registros
                 if (!Validar())
                     return;
 
-                //———————————————————————————————————————————————————————[ VALIDAR SI ESTA VACIO ]———————————————————————————————————————————————————————
                 //—————————————————————————————————[ Pago Id ]—————————————————————————————————
-                if (PagoIdTextBox.Text.Trim() == string.Empty)
+                if (PagoIdTextbox.Text = 0)
                 {
-                    MessageBox.Show("El Campo (Pago Id) está vacío.\n\nAsigne un Id al Pago.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    PagoIdTextBox.Text = "0";
-                    PagoIdTextBox.Focus();
-                    PagoIdTextBox.SelectAll();
+                    MessageBox.Show("El Campo (Devolución Id) está vacío.\n\nAsigne un Id al Préstamo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    PagoIdTextbox.Text = "0";
+                    PagoIdTextbox.Focus();
+                    PagoIdTextbox.SelectAll();
                     return;
                 }
-                //—————————————————————————————————[ Venta  Id ]—————————————————————————————————
-                if (VentaIdComboBox.Text == string.Empty)
+                //—————————————————————————————————[ Usuario Id ]—————————————————————————————————
+                if (UsuarioIdComboBox.Text == string.Empty)
                 {
-                    MessageBox.Show("El Campo (venta Id) está vacío.\n\nPorfavor, Seleccione su Venta Id.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    VentaIdComboBox.IsDropDownOpen = true;
+                    MessageBox.Show("El Campo (Usuario Id) está vacío.\n\nPorfavor, Seleccione su Nombre de Usuario.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    UsuarioIdComboBox.IsDropDownOpen = true;
                     return;
                 }
-               
-               
-               
-                //—————————————————————————————————[ Fecha ]—————————————————————————————————
-                if (FechaDatePicker.Text.Trim() == string.Empty)
-                {
-                    MessageBox.Show($"El Campo (Fecha) está vacío.\n\nSeleccione una fecha.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    FechaDatePicker.Focus();
-                    return;
-                }
-                //—————————————————————————————————[ Monto ]—————————————————————————————————
-                if (MontoTextBox.Text.Trim() == string.Empty)
-                {
-                    MessageBox.Show("El Campo (Monto) está vacío.\n\nDebe Indicar el Monto Pagado.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    MontoTextBox.Text = "0";
-                    MontoTextBox.Focus();
-                    MontoTextBox.SelectAll();
-                    return;
-                }
-                //———————————————————————————————————————————————————————[ VALIDAR SI ESTA VACIO - FIN ]———————————————————————————————————————————————————————
-                var paso = PagosBLL.Guardar(Pagos);
+            
+           
+
+                var paso = PagosBLL.Guardar(this.pagos);
                 if (paso)
                 {
                     Limpiar();
                     MessageBox.Show("Transacción Exitosa", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
-                    MessageBox.Show("Transaccion Fallida", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Transacción Fallida", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         //——————————————————————————————————————————————————————————————[ Eliminar ]———————————————————————————————————————————————————————————————
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
             {
-                if (PagosBLL.Eliminar(Utilidades.ToInt(PagoIdTextBox.Text)))
+                if (PagosBLL.Eliminar(Utilidades.ToInt(PagoIdTextbox.Text)))
                 {
                     Limpiar();
                     MessageBox.Show("Registro Eliminado", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -130,12 +156,6 @@ namespace Fuente_de_Luz.UI.Registros
                     MessageBox.Show("No se pudo eliminar el registro", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-       
-
         
-       
-            
-        
-    }
+    } 
 }
-    

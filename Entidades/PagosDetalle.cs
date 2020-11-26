@@ -14,9 +14,9 @@ namespace Fuente_de_Luz.Entidades
 
         public decimal Monto { get; set; }
 
-        public decimal Balance{get; set;}
+        public decimal BalancePendiente{get; set;}
 
-        public int Descuento{get; set;}
+       
         
        
 

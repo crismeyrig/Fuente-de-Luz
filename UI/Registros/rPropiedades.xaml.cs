@@ -20,12 +20,6 @@ namespace Fuente_de_Luz.UI.Registros
             UsuarioIdComboBox.DisplayMemberPath = "NombreUsuario";
 
             
-            PropiedadComboBox.ItemsSource = PropiedadBLL.GetPropiedad();
-            PropiedadComboBox.SelectedValuePath = "PropiedadId";
-            PropiedadComboBox.DisplayMemberPath = "Propiedad";
-
-
-            
         }
        
         private void Cargar()

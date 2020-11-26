@@ -24,7 +24,8 @@
             </StackPanel>
 
             <!--Nombre-->
-             <ComboBox x:Name="PropiedadComboBox" SelectedValue="{Binding Propiedad}" VerticalContentAlignment="Center" Width="100" Margin="20,0,0,0" />
+            <Label Content="Nombre Propiedad" FontWeight="Bold" Margin="0,0,10,0"/>
+            <TextBox x:Name="PropiedadTextBox" Text="{Binding Propiedad}" VerticalContentAlignment="Center" Width="100" Margin="20,0,0,0" />
 
            
            <!--Numero Propiedad-->
