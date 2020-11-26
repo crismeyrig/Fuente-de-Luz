@@ -14,13 +14,18 @@ namespace Fuente_de_Luz.UI.Registros
         {
             InitializeComponent();
             this.DataContext = Propiedades;
+
+            UsuarioIdComboBox.ItemsSource = UsuariosBLL.GetUsuarios();
+            UsuarioIdComboBox.SelectedValuePath = "UsuarioId";
+            UsuarioIdComboBox.DisplayMemberPath = "NombreUsuario";
+
+            
             PropiedadComboBox.ItemsSource = PropiedadBLL.GetPropiedad();
             PropiedadComboBox.SelectedValuePath = "PropiedadId";
             PropiedadComboBox.DisplayMemberPath = "Propiedad";
 
-            SeccionComboBox.ItemsSource = PropiedadBLL.GetPropiedad();
-            SeccionComboBox.SelectedValuePath = "Propiedad";
-            SeccionComboBox.DisplayMemberPath = "Seccion";
+
+            
         }
        
         private void Cargar()
@@ -87,10 +92,10 @@ namespace Fuente_de_Luz.UI.Registros
                     PropiedadIdTextBox.SelectAll();
                     return;
                 }
-                if (UsuarioIdTextBox.Text == string.Empty)
+                if (UsuarioIdComboBox.Text == string.Empty)
                 {
                     MessageBox.Show("El Campo (Usuario Id) está vacío.\n\nPorfavor, Seleccione su Nombre de Usuario.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    UsuarioIdTextBox.Clear();
+                    
                     return;
                 }
                 if (PropiedadComboBox.Text.Trim() == string.Empty)

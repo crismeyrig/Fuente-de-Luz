@@ -12,7 +12,7 @@ namespace Fuente_de_Luz.Entidades
         public int PagoId { get; set; }
         public DateTime Fecha { get; set; }
         public int VentaId { get; set; }
-        public decimal BalanceAnterio { get; set; }
+        public decimal BalanceAnterior { get; set; }
 
         public decimal BalancePendiente { get; set; }
 
