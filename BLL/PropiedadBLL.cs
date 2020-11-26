@@ -20,6 +20,11 @@ namespace Fuente_de_Luz.BLL
                 return Modificar(propiedad);
         }
 
+        internal static object GetPropiedad()
+        {
+            throw new NotImplementedException();
+        }
+
         private static bool Existe(object propiedadId)
         {
             throw new NotImplementedException();

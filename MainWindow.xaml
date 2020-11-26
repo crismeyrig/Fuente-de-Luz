@@ -18,6 +18,8 @@
                 <MenuItem x:Name="rRepresentantesMenuItem"   Header="Registrar Representantes" Click="rRepresentantesMenuItem_Click" /> 
                <MenuItem  x:Name="rCuotasMenuItem"   Header="Registrar Cuotas" Click="rCuotasMenuItem_Click" /> 
                <MenuItem  x:Name="rVentasMenuItem"   Header="Registrar Ventas" Click="rVentasMenuItem_Click" /> 
+               <MenuItem  x:Name="rPagosMenuItem"   Header="Registrar Pagos" Click="rPagosMenuItem_Click" /> 
+               <MenuItem  x:Name="rPropiedadesMenuItem"   Header="Registrar Propiedad" Click="rPropiedadesMenuItem_Click" /> 
                 </MenuItem>
 
                 <MenuItem Header="Consultas">
