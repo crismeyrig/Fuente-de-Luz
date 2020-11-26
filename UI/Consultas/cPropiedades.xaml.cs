@@ -6,16 +6,16 @@ using Fuente_de_Luz.Entidades;
 
 namespace Fuente_de_Luz.UI.Consultas
 {
-    public partial class cPagos : Window
+    public partial class cPropiedades : Window
     {
-        public cPagos()
+        public cPropiedades()
         {
             InitializeComponent();
         }
 
         private void ConsultarButton_Click(object sender, RoutedEventArgs e)
         {
-            var listado = new List<Pagos>();
+            var listado = new List<cPropiedades>();
 
             if (CriterioTextBox.Text.Trim().Length > 0)
             {
@@ -24,7 +24,7 @@ namespace Fuente_de_Luz.UI.Consultas
                     case 0:
                         try
                         {
-                            listado = PagosBLL.GetList(u => u.PagoId == Utilidades.ToInt(CriterioTextBox.Text));
+                            listado = PropiedadBLL.GetList(u => u.PropiedadId == Utilidades.ToInt(CriterioTextBox.Text));
                         }
                         catch (FormatException)
                         {
@@ -35,7 +35,7 @@ namespace Fuente_de_Luz.UI.Consultas
                     case 1:
                         try
                         {
-                            listado = PagosBLL.GetList(u => u.VentaId==int.Parse(CriterioTextBox.Text));
+                            listado = PropiedadBLL.GetList(u => u.UsuarioId == int.Parse(CriterioTextBox.Text));
                         }
                         catch (FormatException)
                         {
@@ -45,7 +45,7 @@ namespace Fuente_de_Luz.UI.Consultas
                     case 2:
                         try
                         {
-                            listado = PagosBLL.GetList(u => u.UsuarioId==int.Parse(CriterioTextBox.Text));
+                            listado = PropiedadBLL.GetList(u => u.Seccion.Contains(CriterioTextBox.Text));
                         }
                         catch (FormatException)
                         {
@@ -55,7 +55,7 @@ namespace Fuente_de_Luz.UI.Consultas
                     case 3:
                         try
                         {
-                            listado = PagosBLL.GetList(u => u.Monto==int.Parse(CriterioTextBox.Text));
+                            listado = PropiedadBLL.GetList(u => u.Precio==int.Parse(CriterioTextBox.Text));
                         }
                         catch (FormatException)
                         {
@@ -66,7 +66,7 @@ namespace Fuente_de_Luz.UI.Consultas
             }
             else
             {
-                listado = PagosBLL.GetList(c => true);
+                listado = PropiedadBLL.GetList(c => true);
             }
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;

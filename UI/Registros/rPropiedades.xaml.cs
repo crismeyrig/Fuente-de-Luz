@@ -134,13 +134,13 @@ namespace Fuente_de_Luz.UI.Registros
                     MessageBox.Show("Registro Eliminado", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
-                    MessageBox.Show("No se pudo Eliminar el Registro", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("No se pudo Eliminar el Registro por que no Existe", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        
+
        
-            }
-        }
+    }
+ }
         
         
         
