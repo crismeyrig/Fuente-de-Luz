@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fuente_de_Luz.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Pagos" Height="680" Width="550" WindowStartupLocation="CenterScreen" Icon="/Resources/Agendar.png" ResizeMode="CanMinimize">
+        Title="Registro de Pagos" Height="640" Width="540" WindowStartupLocation="CenterScreen" Icon="/Resources/Agendar.png" ResizeMode="CanMinimize">
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
             <StackPanel Orientation="Horizontal">
@@ -16,7 +16,7 @@
             </StackPanel>
             <!--——————————————————————————————————————————————[ BUSCAR ]——————————————————————————————————————————————-->
             <StackPanel Orientation="Horizontal" Height="35">
-            <TextBox x:Name="PagoIdTextBox" Text="{Binding PagoId}" Width="100" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="PagoIdTextBox" Text="{Binding PagoId}" Width="100" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" TextChanged="PagoIdTextBox_TextChanged"/>
             <!--——————————————————————————————————————————————[ Venta ]——————————————————————————————————————————————-->
              <TextBox x:Name="VentaIdTextBox" Text="{Binding VentaId}" Width="100" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center"/>
                 <!--—————————————————————————————[ Usuario Id ]—————————————————————————————-->
@@ -41,6 +41,9 @@
              <!--—————————————————————————————————————[ Monto ]—————————————————————————————————————-->
             <Label Content="Monto" FontWeight="Bold" Margin="0,5,0,0"/>
             <TextBox x:Name="MontoTextBox" Text="{Binding Monto}" Height="30" Width="100" VerticalContentAlignment="Center" HorizontalAlignment="Left" />
+            <!--——————————————————————[ Balance Pendiente]——————————————————————-->
+            <Label Content="Balance Pendiente" FontWeight="Bold" Margin="0,0,5,0"/>
+            <TextBox x:Name="BalancePendienteTextBox" Height="30" Width="100" IsReadOnly="true" Text="0"/>
             
             <!--——————————————————————————————————————————————[ DETALLE ]——————————————————————————————————————————————-->
             <StackPanel Orientation="Vertical">
@@ -58,11 +61,6 @@
                                 <TextBox x:Name="CuotaIdTextBox" Width="100" Margin="0,0,10,0"/>
                             </StackPanel>
 
-                            <!--——————————————————————[ Balance Pendiente]——————————————————————-->
-                            <StackPanel Orientation="Vertical" Margin="0,0,20,0" >
-                                <Label Content="Balance Pendiente" HorizontalAlignment="Center"/>
-                                <TextBox x:Name="BalancePendienteTextBox" Height="23" Width="100" IsReadOnly="true" Text="0"/>
-                            </StackPanel>
                             <!--——————————————————————[ AgregarFilaButton ]——————————————————————-->
                             <Button x:Name="AgregarFilaButton" Click="AgregarFilaButton_Click" Height="30" >
                                 <StackPanel Orientation="Horizontal">
@@ -74,10 +72,8 @@
                         <!--——————————————————————————————————————————————[ DATA GRID ]——————————————————————————————————————————————-->
                         <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding Detalle}" Height="80" AutoGenerateColumns="False" Margin="0,10,0,0">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header=" Id" Binding="{Binding Id}"/>
+                                <DataGridTextColumn Header=" Detalle Id" Binding="{Binding Id}"/>
                                 <DataGridTextColumn Header="Cuota Id" Binding="{Binding CuotaId}"/>
-                                <DataGridTextColumn Header="Monto" Binding="{Binding Monto}"/>
-                                <DataGridTextColumn Header="Balance Pendiente" Binding="{Binding BalancePendiente}"/>
                             </DataGrid.Columns>
                         </DataGrid>
 

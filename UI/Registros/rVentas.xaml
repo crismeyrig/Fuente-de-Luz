@@ -49,7 +49,7 @@
                 <!--—————————————————————————————[ Telefono ]—————————————————————————————-->
                 
                 <!--—————————————————————————————[ FechaNacimiento ]—————————————————————————————-->
-                <Label Content="Fecha Nacimiento" FontWeight="Bold"/>
+                <Label Content="Fecha" FontWeight="Bold"/>
                 <DatePicker x:Name="FechaDatePicker" SelectedDate="{Binding Fecha}" Height="30" VerticalContentAlignment="Center" Width="170"/>
             </StackPanel>
             <!--——————————————————————————————————————————————[ Direccion ]——————————————————————————————————————————————-->
