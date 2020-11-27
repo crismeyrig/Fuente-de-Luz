@@ -1,9 +1,7 @@
-using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
 using Fuente_de_Luz.Entidades;
 using Fuente_de_Luz.BLL;
+using System.Windows.Controls;
 
 namespace Fuente_de_Luz.UI.Registros
 {
@@ -19,13 +17,12 @@ namespace Fuente_de_Luz.UI.Registros
             UsuarioIdComboBox.SelectedValuePath = "UsuarioId";
             UsuarioIdComboBox.DisplayMemberPath = "NombreUsuario";
 
-            
         }
        
         private void Cargar()
         {
             this.DataContext = null;
-            this.DataContext =Propiedades;
+            this.DataContext = Propiedades;
         }
         
         private void Limpiar()
@@ -89,12 +86,12 @@ namespace Fuente_de_Luz.UI.Registros
                 if (UsuarioIdComboBox.Text == string.Empty)
                 {
                     MessageBox.Show("El Campo (Usuario Id) está vacío.\n\nPorfavor, Seleccione su Nombre de Usuario.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    
+                    UsuarioIdComboBox.IsDropDownOpen = true;
                     return;
                 }
                 if (PropiedadTextBox.Text.Trim() == string.Empty)
                 {
-                    MessageBox.Show("El Campo (Nombre) está vacío.\n\nAsigne un Nombre al Cliente.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("El Campo (Nombre) está vacío.\n\nAsigne un Nombre a la propiedad.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                     PropiedadTextBox.Focus();
                     return;
                 }
@@ -112,6 +109,27 @@ namespace Fuente_de_Luz.UI.Registros
                     MessageBox.Show("El Campo (Ubicacion) está vacío.\n\nAsigne una Dirección al Cliente.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                     UbicacionTextBox.Clear();
                     UbicacionTextBox.Focus();
+                    return;
+                }
+                if (SeccionTextBox.Text.Trim() == string.Empty)
+                {
+                    MessageBox.Show("El Campo (Seccion) está vacío.\n\nAsigne una Dirección al Cliente.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    SeccionTextBox.Clear();
+                    SeccionTextBox.Focus();
+                    return;
+                }
+                if (NumPropiedadTextBox.Text.Trim() == string.Empty)
+                {
+                    MessageBox.Show("El Campo (NumPropiedad) está vacío.\n\nAsigne una Dirección al Cliente.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    NumPropiedadTextBox.Clear();
+                    NumPropiedadTextBox.Focus();
+                    return;
+                }
+                if (PrecioTextBox.Text.Trim() == string.Empty)
+                {
+                    MessageBox.Show("El Campo (Precio) está vacío.\n\nAsigne una Dirección al Cliente.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    PrecioTextBox.Clear();
+                    PrecioTextBox.Focus();
                     return;
                 }
                 var paso = PropiedadBLL.Guardar(Propiedades);
@@ -135,6 +153,23 @@ namespace Fuente_de_Luz.UI.Registros
                 }
                 else
                     MessageBox.Show("No se pudo Eliminar el Registro por que no Existe", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+         private void PropiedadIdTextbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                if (PropiedadIdTextBox.Text.Trim() != string.Empty)
+                {
+                    int.Parse(PropiedadIdTextBox.Text);
+                }
+            }
+            catch
+            {
+                MessageBox.Show($"El valor digitado en el campo (Propiedad Id) no es un número.\n\nPor favor, digite un número.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                PropiedadIdTextBox.Text = "0";
+                PropiedadIdTextBox.Focus();
+                PropiedadIdTextBox.SelectAll();
             }
         }
 
