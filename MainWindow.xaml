@@ -25,7 +25,8 @@
                 <MenuItem Header="Consultas">
                 <MenuItem x:Name="cUsuariosMenuItem"  Header="Consultar Usuarios" Click="cUsuariosMenuItem_Click" />
                 <MenuItem x:Name="cClientesMenuItem"  Header="Consultar Clientes" Click="cClientesMenuItem_Click" /> 
-                <MenuItem x:Name="cPagosMenuItem"  Header="Consultar Pagos" Click="cPagosMenuItem_Click" />  
+                <MenuItem x:Name="cPagosMenuItem"  Header="Consultar Pagos" Click="cPagosMenuItem_Click" />
+                <MenuItem x:Name="cPropiedadesMenuItem"  Header="Consultar Propiedades" Click="cPropiedadesMenuItem_Click" />    
                     
                 </MenuItem>
 

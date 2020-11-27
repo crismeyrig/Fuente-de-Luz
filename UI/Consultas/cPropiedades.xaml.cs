@@ -15,7 +15,7 @@ namespace Fuente_de_Luz.UI.Consultas
 
         private void ConsultarButton_Click(object sender, RoutedEventArgs e)
         {
-            var listado = new List<cPropiedades>();
+            var listado = new List<Propiedad>();
 
             if (CriterioTextBox.Text.Trim().Length > 0)
             {

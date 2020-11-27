@@ -16,9 +16,9 @@
             </StackPanel>
             <!--——————————————————————————————————————————————[ BUSCAR ]——————————————————————————————————————————————-->
             <StackPanel Orientation="Horizontal" Height="35">
-            <TextBox x:Name="PagoIdTextbox" Text="{Binding PagoId}" Width="150" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="PagoIdTextBox" Text="{Binding PagoId}" Width="150" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center"/>
             <!--——————————————————————————————————————————————[ Venta ]——————————————————————————————————————————————-->
-             <TextBox x:Name="VentaIdTextbox" Text="{Binding VentaId}" Width="150" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center"/>
+             <TextBox x:Name="VentaIdTextBox" Text="{Binding VentaId}" Width="150" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center"/>
                 <!--—————————————————————————————[ Usuario Id ]—————————————————————————————-->
                 <ComboBox x:Name="UsuarioIdComboBox" SelectedValue="{Binding UsuarioId}" VerticalContentAlignment="Center" Width="100" Margin="50,0,0,0" />
                 <!--—————————————————————————————[ Boton Buscar ]—————————————————————————————-->
@@ -55,7 +55,7 @@
                             <!--——————————————————————[ Cuota Id ]——————————————————————-->
                             <StackPanel Orientation="Vertical">
                                 <Label Content="Cuota Id"/>
-                                <TextBox x:Name="CuotaTextBox" Width="100" Margin="0,0,10,0"/>
+                                <TextBox x:Name="CuotaIdTextBox" Width="100" Margin="0,0,10,0"/>
                             </StackPanel>
 
                             <!--——————————————————————[ Balance Pendiente]——————————————————————-->
@@ -74,7 +74,7 @@
                         <!--——————————————————————————————————————————————[ DATA GRID ]——————————————————————————————————————————————-->
                         <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding Detalle}" Height="80" AutoGenerateColumns="False" Margin="0,10,0,0">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header=" Id" Binding="{Binding DetalleId}"/>
+                                <DataGridTextColumn Header=" Id" Binding="{Binding Id}"/>
                                 <DataGridTextColumn Header="Cuota Id" Binding="{Binding CuotaId}"/>
                                 <DataGridTextColumn Header="Monto" Binding="{Binding Monto}"/>
                                 <DataGridTextColumn Header="Balance Pendiente" Binding="{Binding BalancePendiente}"/>
