@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Linq;
-using System.Text;
 
 namespace Fuente_de_Luz.BLL
 {
@@ -18,6 +17,11 @@ namespace Fuente_de_Luz.BLL
 
             else
                 return Modificar(propiedad);
+        }
+
+        internal static object GetPropiedad()
+        {
+            throw new NotImplementedException();
         }
 
         private static bool Existe(object propiedadId)

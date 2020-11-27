@@ -13,13 +13,13 @@ namespace Fuente_de_Luz.Migrations
                 {
                     CuotaId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
                     VentaId = table.Column<int>(type: "INTEGER", nullable: false),
                     Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Monto = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Balence = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Valor = table.Column<int>(type: "INTEGER", nullable: false),
                     NumCuota = table.Column<int>(type: "INTEGER", nullable: false),
-                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Valor = table.Column<int>(type: "INTEGER", nullable: false),
+                    Monto = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Balence = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -34,7 +34,7 @@ namespace Fuente_de_Luz.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
                     VentaId = table.Column<int>(type: "INTEGER", nullable: false),
-                    BalanceAnterio = table.Column<decimal>(type: "TEXT", nullable: false),
+                    BalanceAnterior = table.Column<decimal>(type: "TEXT", nullable: false),
                     BalancePendiente = table.Column<decimal>(type: "TEXT", nullable: false),
                     Monto = table.Column<decimal>(type: "TEXT", nullable: false),
                     Descuento = table.Column<decimal>(type: "TEXT", nullable: false),
@@ -51,13 +51,11 @@ namespace Fuente_de_Luz.Migrations
                 {
                     PropiedadId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Metros = table.Column<int>(type: "INTEGER", nullable: false),
-                    Nombres = table.Column<string>(type: "TEXT", nullable: true),
+                    Nombre = table.Column<string>(type: "TEXT", nullable: true),
                     Descripcion = table.Column<string>(type: "TEXT", nullable: true),
-                    Costo = table.Column<decimal>(type: "TEXT", nullable: false),
                     Precio = table.Column<decimal>(type: "TEXT", nullable: false),
                     Ubicacion = table.Column<string>(type: "TEXT", nullable: true),
-                    NOPropiedad = table.Column<int>(type: "INTEGER", nullable: false),
+                    NumPropiedad = table.Column<int>(type: "INTEGER", nullable: false),
                     Seccion = table.Column<string>(type: "TEXT", nullable: true),
                     UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
@@ -72,11 +70,11 @@ namespace Fuente_de_Luz.Migrations
                 {
                     ReferidoId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    VentaId = table.Column<int>(type: "INTEGER", nullable: false),
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ClienteId = table.Column<int>(type: "INTEGER", nullable: false),
                     Nombre = table.Column<string>(type: "TEXT", nullable: true),
-                    Cedula = table.Column<int>(type: "INTEGER", nullable: false),
-                    Direccion = table.Column<string>(type: "TEXT", nullable: true),
-                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Cedula = table.Column<string>(type: "TEXT", nullable: true),
+                    Direccion = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -89,11 +87,11 @@ namespace Fuente_de_Luz.Migrations
                 {
                     RepresentanteId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    VentaId = table.Column<int>(type: "INTEGER", nullable: false),
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ClienteId = table.Column<int>(type: "INTEGER", nullable: false),
                     Nombre = table.Column<string>(type: "TEXT", nullable: true),
-                    Cedula = table.Column<int>(type: "INTEGER", nullable: false),
-                    Direccion = table.Column<string>(type: "TEXT", nullable: true),
-                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Cedula = table.Column<string>(type: "TEXT", nullable: true),
+                    Direccion = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -124,18 +122,17 @@ namespace Fuente_de_Luz.Migrations
                 {
                     VentaId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
                     ClienteId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Monto = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Balance = table.Column<decimal>(type: "TEXT", nullable: false),
                     PropiedadId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Descuento = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
                     NumCuotas = table.Column<int>(type: "INTEGER", nullable: false),
                     Valor = table.Column<int>(type: "INTEGER", nullable: false),
-                    Comentario = table.Column<string>(type: "TEXT", nullable: true),
+                    Monto = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Balance = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Descuento = table.Column<decimal>(type: "TEXT", nullable: false),
                     FechaPrimerPago = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    TipoNegocio = table.Column<string>(type: "TEXT", nullable: true),
-                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Comentario = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -150,8 +147,7 @@ namespace Fuente_de_Luz.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     CuotaId = table.Column<int>(type: "INTEGER", nullable: false),
                     Monto = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Balance = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Descuento = table.Column<int>(type: "INTEGER", nullable: false),
+                    BalancePendiente = table.Column<decimal>(type: "TEXT", nullable: false),
                     PagoId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
@@ -177,8 +173,8 @@ namespace Fuente_de_Luz.Migrations
                     Apellido = table.Column<string>(type: "TEXT", nullable: true),
                     Cedula = table.Column<string>(type: "TEXT", nullable: true),
                     Telefono = table.Column<string>(type: "TEXT", nullable: true),
-                    Celular = table.Column<string>(type: "TEXT", nullable: true),
                     Direccion = table.Column<string>(type: "TEXT", nullable: true),
+                    Celular = table.Column<string>(type: "TEXT", nullable: true),
                     Email = table.Column<string>(type: "TEXT", nullable: true),
                     Genero = table.Column<string>(type: "TEXT", nullable: true),
                     EstadoCivil = table.Column<string>(type: "TEXT", nullable: true),

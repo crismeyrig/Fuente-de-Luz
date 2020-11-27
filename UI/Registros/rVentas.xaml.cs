@@ -1,14 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Fuente_de_Luz.Entidades;
 using Fuente_de_Luz.BLL;
 
@@ -149,7 +140,7 @@ namespace Fuente_de_Luz.UI.Registros
             }
         }
 
-        private void OnKeyDownHandler(object sender, KeyEventArgs e){
+        /*private void OnKeyDownHandler(object sender, KeyEventArgs e){
             if(e.Key == Key.Enter){
                 //tu codigo...
                  
@@ -161,6 +152,6 @@ namespace Fuente_de_Luz.UI.Registros
                     MessageBox.Show("Propiedad no encontrada", "Advertencia");
                 }
             }
-        }    
+        }  */
     }
 }

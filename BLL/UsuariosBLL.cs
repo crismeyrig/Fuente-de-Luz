@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using System.Security.RightsManagement;
 using System.Linq.Expressions;
 using System.Security.Cryptography;
-using Fuente_de_Luz.DAL; 
-using Fuente_de_Luz.Entidades; 
+using Fuente_de_Luz.DAL;
+using Fuente_de_Luz.Entidades;
 
-namespace Fuente_de_Luz.BLL 
+namespace Fuente_de_Luz.BLL
 {
-      public class UsuariosBLL
+    public class UsuariosBLL
     {
         public static bool Guardar(Usuarios usuario)
         {
