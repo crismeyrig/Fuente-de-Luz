@@ -58,7 +58,7 @@ namespace Fuente_de_Luz.UI.Registros
             {
                 this.Propiedades = new Propiedad();
                 this.DataContext = this.Propiedades;
-                MessageBox.Show($"Este Cliente no fue encontrado.\n\nAsegúrese que existe o cree uno nuevo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show($"Esta Propiedad no fue encontrado.\n\nAsegúrese que existe o cree uno nuevo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                 Limpiar();
                 PropiedadIdTextBox.SelectAll();
                 PropiedadIdTextBox.Focus();

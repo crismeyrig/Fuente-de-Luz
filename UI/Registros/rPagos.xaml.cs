@@ -15,7 +15,7 @@ namespace Fuente_de_Luz.UI.Registros
             //—————————————————————————————————————[ ComboBox UsuarioId ]—————————————————————————————————————
             UsuarioIdComboBox.ItemsSource = UsuariosBLL.GetUsuarios();
             UsuarioIdComboBox.SelectedValuePath = "UsuarioId";
-            UsuarioIdComboBox.DisplayMemberPath = "Nombres";
+            UsuarioIdComboBox.DisplayMemberPath = "NombresUsuario";
 
         }
         //——————————————————————————————————————————————————————————————[ Cargar ]———————————————————————————————————————————————————————————————

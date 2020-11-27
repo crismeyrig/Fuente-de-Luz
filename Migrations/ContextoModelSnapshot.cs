@@ -197,6 +197,12 @@ namespace Fuente_de_Luz.Migrations
 
                     b.Property<string>("Cedula")
                         .HasColumnType("TEXT");
+<<<<<<< HEAD
+=======
+
+                    b.Property<int>("ClienteId")
+                        .HasColumnType("INTEGER");
+>>>>>>> 99305016b2a6f9f311c0fa819dea887b230648d3
 
                     b.Property<string>("Direccion")
                         .HasColumnType("TEXT");
@@ -205,9 +211,6 @@ namespace Fuente_de_Luz.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int>("UsuarioId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("VentaId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("ReferidoId");
@@ -223,6 +226,12 @@ namespace Fuente_de_Luz.Migrations
 
                     b.Property<string>("Cedula")
                         .HasColumnType("TEXT");
+<<<<<<< HEAD
+=======
+
+                    b.Property<int>("ClienteId")
+                        .HasColumnType("INTEGER");
+>>>>>>> 99305016b2a6f9f311c0fa819dea887b230648d3
 
                     b.Property<string>("Direccion")
                         .HasColumnType("TEXT");
@@ -231,9 +240,6 @@ namespace Fuente_de_Luz.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int>("UsuarioId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("VentaId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("RepresentanteId");

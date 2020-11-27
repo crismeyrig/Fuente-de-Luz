@@ -9,13 +9,17 @@
         Title="Registro de Propiedad" Height="580" Width="750"  Icon="/Resources/Agendar.png" ResizeMode="CanMinimize">
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
-            <Label Content="Propiedad Id" FontWeight="Bold" />
-            <Label Content="Usuario Id" FontWeight="Bold" />
-            <!--Buscar--> 
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Propiedad Id" FontWeight="Bold" />
+                <Label Content="Usuario Id" FontWeight="Bold"  Margin="106,0,0,0"/>
+            </StackPanel>
+            <!--——————————————————————————————————————————————[ BUSCAR ]——————————————————————————————————————————————-->
             <StackPanel Orientation="Horizontal" Height="35">
-                <TextBox x:Name="PropiedadIdTextBox" Text="{Binding PropiedadId}" Width="200"  FontWeight="Bold" VerticalContentAlignment="Center" TextChanged="PropiedadIdTextbox_TextChanged" />
-                <ComboBox x:Name="UsuarioIdComboBox" SelectedValue="{Binding UsuarioId}" Width="200"  FontWeight="Bold" VerticalContentAlignment="Center"/>
-                <Button x:Name="BuscarButton" Margin="80,0,0,0" Width="120" Click="BuscarButton_Click">
+                <TextBox x:Name="PropiedadIdTextBox" Text="{Binding PropiedadId}" Width="150"  FontWeight="Bold" VerticalContentAlignment="Center" />
+                <!--—————————————————————————————[ Usuario Id ]—————————————————————————————-->
+                <ComboBox x:Name="UsuarioIdComboBox" SelectedValue="{Binding UsuarioId}" VerticalContentAlignment="Center" Width="100" Margin="50,0,0,0" />
+                <!--—————————————————————————————[ Boton Buscar ]—————————————————————————————-->
+                <Button x:Name="BuscarButton" Margin="50,0,0,0" Width="120" Click="BuscarButton_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Height="30" Source="/Resources/Buscar.png" />
                         <Label Content="Buscar"  FontWeight="Bold"/>
@@ -25,7 +29,7 @@
 
             <!--Nombre-->
             <Label Content="Nombre Propiedad" FontWeight="Bold" Margin="0,0,10,0"/>
-            <TextBox x:Name="PropiedadTextBox" Text="{Binding Propiedad}" Height="30" VerticalContentAlignment="Center"  />
+            <TextBox x:Name="NombreTextBox" Text="{Binding Nombre}" Height="30" VerticalContentAlignment="Center"  />
 
            
            <!--Numero Propiedad-->
@@ -38,7 +42,7 @@
 
             <!--Descripcion-->
             <Label Content="Descripcion" FontWeight="Bold"/>
-            <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Height="40" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Height="60" VerticalContentAlignment="Center"/>
 
             <!--Ubicacion-->
             <Label Content="Ubicacion" FontWeight="Bold"/>

@@ -16,6 +16,10 @@ namespace Fuente_de_Luz.UI.Registros
             UsuarioIdComboBox.ItemsSource = UsuariosBLL.GetUsuarios();
             UsuarioIdComboBox.SelectedValuePath = "UsuarioId";
             UsuarioIdComboBox.DisplayMemberPath = "NombreUsuario";
+
+            ClienteIdComboBox.ItemsSource = ClientesBLL.GetList(p => true);
+            ClienteIdComboBox.SelectedValuePath = "ClienteId";
+            ClienteIdComboBox.DisplayMemberPath = "Nombres";
         }
        
         private void Cargar()
@@ -90,11 +94,11 @@ namespace Fuente_de_Luz.UI.Registros
                     return;
                 }
                 
-                if (NombresTextBox.Text.Trim() == string.Empty)
+                if (NombreTextBox.Text.Trim() == string.Empty)
                 {
                     MessageBox.Show("El Campo (Nombres) está vacío.\n\nAsigne un Nombre al Referido.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    NombresTextBox.Clear();
-                    NombresTextBox.Focus();
+                    NombreTextBox.Clear();
+                    NombreTextBox.Focus();
                     return;
                 }
                 if (CedulaTextBox.Text.Trim() == string.Empty)
