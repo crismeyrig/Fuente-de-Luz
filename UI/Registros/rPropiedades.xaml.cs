@@ -15,7 +15,7 @@ namespace Fuente_de_Luz.UI.Registros
 
             UsuarioIdComboBox.ItemsSource = UsuariosBLL.GetUsuarios();
             UsuarioIdComboBox.SelectedValuePath = "UsuarioId";
-            UsuarioIdComboBox.DisplayMemberPath = "NombreUsuario";
+            UsuarioIdComboBox.DisplayMemberPath = "NombreUsuariO";
 
         }
        
@@ -77,7 +77,7 @@ namespace Fuente_de_Luz.UI.Registros
                     return;
                 if (PropiedadIdTextBox.Text.Trim() == string.Empty)
                 {
-                    MessageBox.Show("El Campo (Cliente Id) está vacío.\n\nAsigne un Id al Cliente.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("El Campo (Propiedad Id) está vacío.\n\nAsigne un Id a l propiedad.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                     PropiedadIdTextBox.Text = "0";
                     PropiedadIdTextBox.Focus();
                     PropiedadIdTextBox.SelectAll();
@@ -88,7 +88,7 @@ namespace Fuente_de_Luz.UI.Registros
                     MessageBox.Show("El Campo (Usuario Id) está vacío.\n\nPorfavor, Seleccione su Nombre de Usuario.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                     UsuarioIdComboBox.IsDropDownOpen = true;
                     return;
-                }
+                } /*
                 if (PropiedadTextBox.Text.Trim() == string.Empty)
                 {
                     MessageBox.Show("El Campo (Nombre) está vacío.\n\nAsigne un Nombre a la propiedad.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -131,15 +131,15 @@ namespace Fuente_de_Luz.UI.Registros
                     PrecioTextBox.Clear();
                     PrecioTextBox.Focus();
                     return;
-                }
+                }*/
                 var paso = PropiedadBLL.Guardar(Propiedades);
                 if (paso)
                 {
                     Limpiar();
-                    MessageBox.Show("Transacción Exitosa", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Propiedad Registrada", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
-                    MessageBox.Show("Transacción Fallida", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("No se ha podido registrar, verifique los datos e intente de nuevo", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         
@@ -175,7 +175,7 @@ namespace Fuente_de_Luz.UI.Registros
 
        
     }
- }
+}
         
         
         

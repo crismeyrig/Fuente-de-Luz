@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Fuente_de_Luz.BLL 
+namespace Fuente_de_Luz.BLL
 {
     public class Utilidades 
     {
