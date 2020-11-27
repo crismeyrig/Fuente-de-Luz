@@ -32,7 +32,7 @@
            
             <!--—————————————————————————————————————[ Fecha  ]—————————————————————————————————————-->
             <StackPanel Orientation="Vertical">
-                <Label x:Name="FechaLabel" Content="Fecha" FontWeight="Bold"/>
+                <Label x:Name="Fecha" Content="Fecha" FontWeight="Bold"/>
                 <DatePicker x:Name="FechaDatePicker" SelectedDate="{Binding Fecha}" Height="30"  IsEnabled = " False " VerticalContentAlignment="Center"/>
             </StackPanel>
              <!--—————————————————————————————————————[ Balance Anterior ]—————————————————————————————————————-->

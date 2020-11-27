@@ -69,6 +69,16 @@ namespace Fuente_de_Luz
             cClientes ventana = new cClientes();
             ventana.Show();
         }
+        private void cPagosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cPagos ventana = new cPagos();
+            ventana.Show();
+        }
+        private void cPropiedadesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cPropiedades ventana = new cPropiedades();
+            ventana.Show();
+        }
         private void AyudaMenu_Click(object sender, RoutedEventArgs e)
         {
 

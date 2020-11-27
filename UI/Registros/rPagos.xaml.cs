@@ -1,6 +1,7 @@
 using System.Windows;
 using Fuente_de_Luz.BLL;
 using Fuente_de_Luz.Entidades;
+using System.Windows.Controls;
 
 namespace Fuente_de_Luz.UI.Registros
 {
@@ -28,6 +29,8 @@ namespace Fuente_de_Luz.UI.Registros
         {
             this.pagos = new Pagos();
             this.DataContext = pagos;
+            PagoIdTextBox.Focus();
+            PagoIdTextBox.SelectAll();
         }
         //——————————————————————————————————————————————————————————————[ Validar ]——————————————————————————————————————————————————————————————
         private bool Validar()
@@ -44,7 +47,7 @@ namespace Fuente_de_Luz.UI.Registros
         //——————————————————————————————————————————————————————————————[ Buscar ]———————————————————————————————————————————————————————————————
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            Pagos encontrado = PagosBLL.Buscar(pagos.PagoId);
+           Pagos encontrado = PagosBLL.Buscar(Utilidades.ToInt(PagoIdTextBox.Text));
 
             if (encontrado != null)
             {
@@ -53,6 +56,8 @@ namespace Fuente_de_Luz.UI.Registros
             }
             else
             {
+                this.pagos = new Pagos();
+                this.DataContext = this.pagos;
                 MessageBox.Show($"Este Pago no fue encontrado.\n\nAsegúrese que existe o cree una nueva.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                 Limpiar();
                 PagoIdTextBox.SelectAll();
@@ -63,7 +68,7 @@ namespace Fuente_de_Luz.UI.Registros
        private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
             //—————————————————————————————————[ pago Id ]—————————————————————————————————
-            if (CuotaIdTextBox.Text == 0)
+            if (CuotaIdTextBox.Text.Length == 0)
             {
                 MessageBox.Show("El Campo (Cuota Id) está vacío.\n\nPorfavor, Seleccione la Cuota.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                 
@@ -113,7 +118,7 @@ namespace Fuente_de_Luz.UI.Registros
                     return;
 
                 //—————————————————————————————————[ Pago Id ]—————————————————————————————————
-                if (PagoIdTextBox.Text = "0")
+                if (PagoIdTextBox.Text == "0")
                 {
                     MessageBox.Show("El Campo (Pago Id) está vacío.\n\nAsigne un Id al Pago.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                     PagoIdTextBox.Text = "0";
@@ -128,9 +133,6 @@ namespace Fuente_de_Luz.UI.Registros
                     UsuarioIdComboBox.IsDropDownOpen = true;
                     return;
                 }
-            
-           
-
                 var paso = PagosBLL.Guardar(this.pagos);
                 if (paso)
                 {
@@ -145,7 +147,7 @@ namespace Fuente_de_Luz.UI.Registros
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
             {
-                if (PagosBLL.Eliminar(Utilidades.ToInt(PagoIdTextbox.Text)))
+                if (PagosBLL.Eliminar(Utilidades.ToInt(PagoIdTextBox.Text)))
                 {
                     Limpiar();
                     MessageBox.Show("Registro Eliminado", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
