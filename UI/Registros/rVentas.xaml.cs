@@ -56,6 +56,17 @@ namespace Fuente_de_Luz.UI.Registros
             return Validado;
         }
         
+        private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void RemoverFilaButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            
+            
+        }
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
             Ventas encontrado = VentasBLL.Buscar(Utilidades.ToInt(VentaIdTextBox.Text));
@@ -82,7 +93,6 @@ namespace Fuente_de_Luz.UI.Registros
         }
          
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
-        {
             {
                 if (!Validar())
                     return;
@@ -109,11 +119,9 @@ namespace Fuente_de_Luz.UI.Registros
                 else
                     MessageBox.Show("Transacción Fallida", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
         
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-            {
                 if (VentasBLL.Eliminar(Utilidades.ToInt(VentaIdTextBox.Text)))
                 {
                     Limpiar();
@@ -121,7 +129,6 @@ namespace Fuente_de_Luz.UI.Registros
                 }
                 else
                     MessageBox.Show("No se pudo Eliminar el Registro", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
         }
         
         private void VentaIdTextbox_TextChanged(object sender, TextChangedEventArgs e)
@@ -141,8 +148,19 @@ namespace Fuente_de_Luz.UI.Registros
                 VentaIdTextBox.SelectAll();
             }
         }
-        
-       
-        
+
+        private void OnKeyDownHandler(object sender, KeyEventArgs e){
+            if(e.Key == Key.Enter){
+                //tu codigo...
+                 
+                Propiedad propiedad = PropiedadBLL.Buscar(int.Parse(PropiedadIdTextBox.Text));
+                if(propiedad.PropiedadId > 0){
+                    NombrePropiedadTextBox.Text = propiedad.Nombres;
+                    PrecioPropiedadTextBox.Text = propiedad.Precio.ToString();
+                }else{
+                    MessageBox.Show("Propiedad no encontrada", "Advertencia");
+                }
+            }
+        }    
     }
 }

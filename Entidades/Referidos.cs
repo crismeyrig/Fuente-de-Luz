@@ -13,7 +13,7 @@ namespace Fuente_de_Luz.Entidades
 
         public int UsuarioId { get; set; }
 
-        public int VentaId { get; set; }
+        public int ClienteId { get; set; }
 
         public String Nombre{get; set;}
 

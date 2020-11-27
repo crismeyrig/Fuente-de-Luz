@@ -28,17 +28,21 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
-            
-           <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
+
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
                 <!--—————————————————————————————[ Nombres ]—————————————————————————————-->
-                <Label Content="VentaId" FontWeight="Bold"/>
-                <TextBox x:Name="VentaIdTextBox" Text="{Binding VentaId}" Height="30" VerticalContentAlignment="Center" Width="200" Margin="10,0,10,0"/>
-            </StackPanel> 
+                <Label Content="Cliente Id" FontWeight="Bold"/>
+                <ComboBox x:Name="ClienteIdComboBox" SelectedValue="{Binding ClienteId}" VerticalContentAlignment="Center" Width="200" />
+                <!--—————————————————————————————[ Apellidos ]—————————————————————————————-->
+                
+            </StackPanel>
+            
+           
             <!--——————————————————————————————————————————————[ Nombres y Apellidos]——————————————————————————————————————————————-->
             <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
                 <!--—————————————————————————————[ Nombres ]—————————————————————————————-->
                 <Label Content="Nombres" FontWeight="Bold"/>
-                <TextBox x:Name="NombresTextBox" Text="{Binding Nombres}" Height="30" VerticalContentAlignment="Center" Width="200" Margin="0,0,10,0"/>
+                <TextBox x:Name="NombreTextBox" Text="{Binding Nombre}" Height="30" VerticalContentAlignment="Center" Width="200" Margin="0,0,10,0"/>
                 <!--—————————————————————————————[ Apellidos ]—————————————————————————————-->
                 
             </StackPanel>
@@ -46,7 +50,7 @@
             <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
                 <!--—————————————————————————————[ Cedula ]—————————————————————————————-->
                 <Label Content="Cédula" FontWeight="Bold"/>
-                <TextBox x:Name="CedulaTextBox" Text="{Binding Cedula}" Height="30" VerticalContentAlignment="Center" Width="200" Margin="0,0,20,0" TextChanged="CedulaTextBox_TextChanged" MaxLength="11"/>
+                <TextBox x:Name="CedulaTextBox" Text="{Binding Cedula}" Height="30" VerticalContentAlignment="Center" Width="200" Margin="10,0,20,0" TextChanged="CedulaTextBox_TextChanged" MaxLength="11"/>
                 
             </StackPanel>    
             <!--——————————————————————————————————————————————[ Telefono y FechaNacimiento ]——————————————————————————————————————————————-->

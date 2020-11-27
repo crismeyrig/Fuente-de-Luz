@@ -71,6 +71,16 @@ namespace Fuente_de_Luz
             cClientes ventana = new cClientes();
             ventana.Show();
         }
+        private void cReferidosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cReferidos ventana = new cReferidos();
+            ventana.Show();
+        }
+        private void cRepresentantesMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cRepresentantes ventana = new cRepresentantes();
+            ventana.Show();
+        }
         private void AyudaMenu_Click(object sender, RoutedEventArgs e)
         {
 
