@@ -74,14 +74,14 @@ namespace Fuente_de_Luz.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("Balence")
-                        .HasColumnType("TEXT");
+                    b.Property<float>("Balence")
+                        .HasColumnType("REAL");
 
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("Monto")
-                        .HasColumnType("TEXT");
+                    b.Property<float>("Monto")
+                        .HasColumnType("REAL");
 
                     b.Property<int>("NumCuota")
                         .HasColumnType("INTEGER");
@@ -95,7 +95,12 @@ namespace Fuente_de_Luz.Migrations
                     b.Property<int>("VentaId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("VentasVentaId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("CuotaId");
+
+                    b.HasIndex("VentasVentaId");
 
                     b.ToTable("Cuotas");
                 });
@@ -106,23 +111,26 @@ namespace Fuente_de_Luz.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("BalanceAnterior")
-                        .HasColumnType("TEXT");
+                    b.Property<float>("BalanceAnterior")
+                        .HasColumnType("REAL");
 
-                    b.Property<decimal>("BalancePendiente")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("Descuento")
-                        .HasColumnType("TEXT");
+                    b.Property<float>("Descuento")
+                        .HasColumnType("REAL");
 
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("Monto")
+                    b.Property<float>("Monto")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("Observacion")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("UsuarioId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<float>("Valor")
+                        .HasColumnType("REAL");
 
                     b.Property<int>("VentaId")
                         .HasColumnType("INTEGER");
@@ -138,17 +146,26 @@ namespace Fuente_de_Luz.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("BalancePendiente")
-                        .HasColumnType("TEXT");
+                    b.Property<float>("Balance")
+                        .HasColumnType("REAL");
 
                     b.Property<int>("CuotaId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("Monto")
-                        .HasColumnType("TEXT");
+                    b.Property<float>("Descuento")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("Monto")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("NumCuotas")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("PagoId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<float>("Total")
+                        .HasColumnType("REAL");
 
                     b.HasKey("Id");
 
@@ -172,8 +189,8 @@ namespace Fuente_de_Luz.Migrations
                     b.Property<int>("NumPropiedad")
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("Precio")
-                        .HasColumnType("TEXT");
+                    b.Property<float>("Precio")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("Seccion")
                         .HasColumnType("TEXT");
@@ -197,12 +214,9 @@ namespace Fuente_de_Luz.Migrations
 
                     b.Property<string>("Cedula")
                         .HasColumnType("TEXT");
-<<<<<<< HEAD
-=======
 
                     b.Property<int>("ClienteId")
                         .HasColumnType("INTEGER");
->>>>>>> 99305016b2a6f9f311c0fa819dea887b230648d3
 
                     b.Property<string>("Direccion")
                         .HasColumnType("TEXT");
@@ -226,12 +240,9 @@ namespace Fuente_de_Luz.Migrations
 
                     b.Property<string>("Cedula")
                         .HasColumnType("TEXT");
-<<<<<<< HEAD
-=======
 
                     b.Property<int>("ClienteId")
                         .HasColumnType("INTEGER");
->>>>>>> 99305016b2a6f9f311c0fa819dea887b230648d3
 
                     b.Property<string>("Direccion")
                         .HasColumnType("TEXT");
@@ -294,17 +305,14 @@ namespace Fuente_de_Luz.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("Balance")
-                        .HasColumnType("TEXT");
+                    b.Property<float>("Balance")
+                        .HasColumnType("REAL");
 
                     b.Property<int>("ClienteId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Comentario")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("Descuento")
-                        .HasColumnType("TEXT");
+                    b.Property<float>("Descuento")
+                        .HasColumnType("REAL");
 
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
@@ -312,14 +320,17 @@ namespace Fuente_de_Luz.Migrations
                     b.Property<DateTime>("FechaPrimerPago")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("Monto")
-                        .HasColumnType("TEXT");
+                    b.Property<float>("Monto")
+                        .HasColumnType("REAL");
 
                     b.Property<int>("NumCuotas")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("PropiedadId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("TipoNegocio")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("UsuarioId")
                         .HasColumnType("INTEGER");
@@ -343,6 +354,13 @@ namespace Fuente_de_Luz.Migrations
                     b.Navigation("usuarios");
                 });
 
+            modelBuilder.Entity("Fuente_de_Luz.Entidades.Cuotas", b =>
+                {
+                    b.HasOne("Fuente_de_Luz.Entidades.Ventas", null)
+                        .WithMany("Cuotas")
+                        .HasForeignKey("VentasVentaId");
+                });
+
             modelBuilder.Entity("Fuente_de_Luz.Entidades.PagosDetalle", b =>
                 {
                     b.HasOne("Fuente_de_Luz.Entidades.Pagos", null)
@@ -353,6 +371,11 @@ namespace Fuente_de_Luz.Migrations
             modelBuilder.Entity("Fuente_de_Luz.Entidades.Pagos", b =>
                 {
                     b.Navigation("PagosDetalle");
+                });
+
+            modelBuilder.Entity("Fuente_de_Luz.Entidades.Ventas", b =>
+                {
+                    b.Navigation("Cuotas");
                 });
 #pragma warning restore 612, 618
         }

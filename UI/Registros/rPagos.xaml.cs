@@ -2,33 +2,34 @@ using System.Windows;
 using System.Windows.Controls;
 using Fuente_de_Luz.BLL;
 using Fuente_de_Luz.Entidades;
+using System.Collections.Generic;
 
 namespace Fuente_de_Luz.UI.Registros
 {
     public partial class rPagos : Window
     {
-        private Pagos pagos = new Pagos();
+        private Pagos pago = new Pagos();
+        private Ventas venta = new Ventas();
         public rPagos()
         {
             InitializeComponent();
-            this.DataContext = pagos;
+            this.DataContext = pago;
             //—————————————————————————————————————[ ComboBox UsuarioId ]—————————————————————————————————————
             UsuarioIdComboBox.ItemsSource = UsuariosBLL.GetUsuarios();
             UsuarioIdComboBox.SelectedValuePath = "UsuarioId";
-            UsuarioIdComboBox.DisplayMemberPath = "NombresUsuario";
-
+            UsuarioIdComboBox.DisplayMemberPath = "NombreUsuario";
         }
         //——————————————————————————————————————————————————————————————[ Cargar ]———————————————————————————————————————————————————————————————
         private void Cargar()
         {
             this.DataContext = null;
-            this.DataContext = pagos;
+            this.DataContext = pago;
         }
         //——————————————————————————————————————————————————————————————[ Limpiar ]——————————————————————————————————————————————————————————————
         private void Limpiar()
         {
-            this.pagos = new Pagos();
-            this.DataContext = pagos;
+            this.pago = new Pagos();
+            this.DataContext = pago;
             PagoIdTextBox.Focus();
             PagoIdTextBox.SelectAll();
         }
@@ -47,11 +48,11 @@ namespace Fuente_de_Luz.UI.Registros
         //——————————————————————————————————————————————————————————————[ Buscar ]———————————————————————————————————————————————————————————————
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-           Pagos encontrado = PagosBLL.Buscar(pagos.PagoId);
+           Pagos encontrado = PagosBLL.Buscar(pago.PagoId);
 
             if (encontrado != null)
             {
-                pagos = encontrado;
+                pago = encontrado;
                 Cargar();
             }
             else
@@ -68,7 +69,7 @@ namespace Fuente_de_Luz.UI.Registros
        private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
         {
             //—————————————————————————————————[ Cuota Id ]—————————————————————————————————
-            if (CuotaIdTextBox.Text.Length == 0)
+            if (PagoIdTextBox.Text.Length == 0)
             {
                 MessageBox.Show("El Campo (Cuota Id) está vacío.\n\nPorfavor, Seleccione la Cuota.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                 
@@ -76,11 +77,11 @@ namespace Fuente_de_Luz.UI.Registros
             }
             var filaDetalle = new PagosDetalle
             {
-                Id = this.pagos.PagoId,
+                Id = this.pago.PagoId,
 
             };
             
-            this.pagos.PagosDetalle.Add(filaDetalle);
+            this.pago.PagosDetalle.Add(filaDetalle);
             Cargar();
            
             
@@ -93,7 +94,7 @@ namespace Fuente_de_Luz.UI.Registros
                
                 if (DetalleDataGrid.Items.Count >= 1 && DetalleDataGrid.SelectedIndex <= DetalleDataGrid.Items.Count - 1)
                 {
-                    pagos.PagosDetalle.RemoveAt(DetalleDataGrid.SelectedIndex);
+                    pago.PagosDetalle.RemoveAt(DetalleDataGrid.SelectedIndex);
           
                     Cargar();
                 }
@@ -141,7 +142,7 @@ namespace Fuente_de_Luz.UI.Registros
                     UsuarioIdComboBox.IsDropDownOpen = true;
                     return;
                 }
-                var paso = PagosBLL.Guardar(this.pagos);
+                var paso = PagosBLL.Guardar(this.pago);
                 if (paso)
                 {
                     Limpiar();
@@ -181,5 +182,29 @@ namespace Fuente_de_Luz.UI.Registros
                 PagoIdTextBox.SelectAll();
             }
         }
+        private void VentaBuscarButton_Click (object sender, RoutedEventArgs e)
+        {
+            if(VentaIdTextBox.Text.Length >0){
+                venta = VentasBLL.Buscar(int.Parse(VentaIdTextBox.Text));
+
+                if(venta.VentaId > 0){
+                    //busca las cuotas pendientes y la muestra en el grid...
+                    List<PagosDetalle> listado = new List<PagosDetalle>();
+
+                    var item = venta.Cuotas.FindAll(e => e.Balence > 0);
+
+                    foreach (Cuotas cuota in item)
+                    {
+                        listado.Add(new PagosDetalle(0,cuota.CuotaId,cuota.Monto,cuota.Balence,0,cuota.NumCuota,0));
+                    }
+
+                    DetalleDataGrid.ItemsSource = null;
+                    DetalleDataGrid.ItemsSource = listado;
+                }
+            }else{
+                 MessageBox.Show($"Debe colocar el numero de la venta", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
     } 
 }

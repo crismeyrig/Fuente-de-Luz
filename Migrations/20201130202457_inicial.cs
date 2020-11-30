@@ -3,29 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Fuente_de_Luz.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Cuotas",
-                columns: table => new
-                {
-                    CuotaId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
-                    VentaId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    NumCuota = table.Column<int>(type: "INTEGER", nullable: false),
-                    Valor = table.Column<int>(type: "INTEGER", nullable: false),
-                    Monto = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Balence = table.Column<decimal>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Cuotas", x => x.CuotaId);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Pagos",
                 columns: table => new
@@ -34,10 +15,11 @@ namespace Fuente_de_Luz.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
                     VentaId = table.Column<int>(type: "INTEGER", nullable: false),
-                    BalanceAnterior = table.Column<decimal>(type: "TEXT", nullable: false),
-                    BalancePendiente = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Monto = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Descuento = table.Column<decimal>(type: "TEXT", nullable: false),
+                    BalanceAnterior = table.Column<float>(type: "REAL", nullable: false),
+                    Monto = table.Column<float>(type: "REAL", nullable: false),
+                    Descuento = table.Column<float>(type: "REAL", nullable: false),
+                    Observacion = table.Column<string>(type: "TEXT", nullable: true),
+                    Valor = table.Column<float>(type: "REAL", nullable: false),
                     UsuarioId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -53,7 +35,7 @@ namespace Fuente_de_Luz.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Nombre = table.Column<string>(type: "TEXT", nullable: true),
                     Descripcion = table.Column<string>(type: "TEXT", nullable: true),
-                    Precio = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Precio = table.Column<float>(type: "REAL", nullable: false),
                     Ubicacion = table.Column<string>(type: "TEXT", nullable: true),
                     NumPropiedad = table.Column<int>(type: "INTEGER", nullable: false),
                     Seccion = table.Column<string>(type: "TEXT", nullable: true),
@@ -71,11 +53,7 @@ namespace Fuente_de_Luz.Migrations
                     ReferidoId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
-<<<<<<< HEAD:Migrations/20201127210125_Inicial.cs
-                    VentaId = table.Column<int>(type: "INTEGER", nullable: false),
-=======
                     ClienteId = table.Column<int>(type: "INTEGER", nullable: false),
->>>>>>> 99305016b2a6f9f311c0fa819dea887b230648d3:Migrations/20201127124336_inicial.cs
                     Nombre = table.Column<string>(type: "TEXT", nullable: true),
                     Cedula = table.Column<string>(type: "TEXT", nullable: true),
                     Direccion = table.Column<string>(type: "TEXT", nullable: true)
@@ -92,11 +70,7 @@ namespace Fuente_de_Luz.Migrations
                     RepresentanteId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
-<<<<<<< HEAD:Migrations/20201127210125_Inicial.cs
-                    VentaId = table.Column<int>(type: "INTEGER", nullable: false),
-=======
                     ClienteId = table.Column<int>(type: "INTEGER", nullable: false),
->>>>>>> 99305016b2a6f9f311c0fa819dea887b230648d3:Migrations/20201127124336_inicial.cs
                     Nombre = table.Column<string>(type: "TEXT", nullable: true),
                     Cedula = table.Column<string>(type: "TEXT", nullable: true),
                     Direccion = table.Column<string>(type: "TEXT", nullable: true)
@@ -135,12 +109,12 @@ namespace Fuente_de_Luz.Migrations
                     PropiedadId = table.Column<int>(type: "INTEGER", nullable: false),
                     Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
                     NumCuotas = table.Column<int>(type: "INTEGER", nullable: false),
+                    TipoNegocio = table.Column<string>(type: "TEXT", nullable: true),
                     Valor = table.Column<int>(type: "INTEGER", nullable: false),
-                    Monto = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Balance = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Descuento = table.Column<decimal>(type: "TEXT", nullable: false),
-                    FechaPrimerPago = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Comentario = table.Column<string>(type: "TEXT", nullable: true)
+                    Monto = table.Column<float>(type: "REAL", nullable: false),
+                    Balance = table.Column<float>(type: "REAL", nullable: false),
+                    Descuento = table.Column<float>(type: "REAL", nullable: false),
+                    FechaPrimerPago = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -154,8 +128,11 @@ namespace Fuente_de_Luz.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     CuotaId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Monto = table.Column<decimal>(type: "TEXT", nullable: false),
-                    BalancePendiente = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Monto = table.Column<float>(type: "REAL", nullable: false),
+                    Balance = table.Column<float>(type: "REAL", nullable: false),
+                    Descuento = table.Column<float>(type: "REAL", nullable: false),
+                    NumCuotas = table.Column<int>(type: "INTEGER", nullable: false),
+                    Total = table.Column<float>(type: "REAL", nullable: false),
                     PagoId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
@@ -200,6 +177,32 @@ namespace Fuente_de_Luz.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Cuotas",
+                columns: table => new
+                {
+                    CuotaId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    UsuarioId = table.Column<int>(type: "INTEGER", nullable: false),
+                    VentaId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    NumCuota = table.Column<int>(type: "INTEGER", nullable: false),
+                    Valor = table.Column<int>(type: "INTEGER", nullable: false),
+                    Monto = table.Column<float>(type: "REAL", nullable: false),
+                    Balence = table.Column<float>(type: "REAL", nullable: false),
+                    VentasVentaId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cuotas", x => x.CuotaId);
+                    table.ForeignKey(
+                        name: "FK_Cuotas_Ventas_VentasVentaId",
+                        column: x => x.VentasVentaId,
+                        principalTable: "Ventas",
+                        principalColumn: "VentaId",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "UsuarioId", "Apellidos", "Contrasena", "Email", "FechaCreacion", "NombreUsuario", "Nombres" },
@@ -209,6 +212,11 @@ namespace Fuente_de_Luz.Migrations
                 name: "IX_Clientes_UsuarioId",
                 table: "Clientes",
                 column: "UsuarioId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Cuotas_VentasVentaId",
+                table: "Cuotas",
+                column: "VentasVentaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PagosDetalle_PagoId",
@@ -237,10 +245,10 @@ namespace Fuente_de_Luz.Migrations
                 name: "Representantes");
 
             migrationBuilder.DropTable(
-                name: "Ventas");
+                name: "Usuarios");
 
             migrationBuilder.DropTable(
-                name: "Usuarios");
+                name: "Ventas");
 
             migrationBuilder.DropTable(
                 name: "Pagos");

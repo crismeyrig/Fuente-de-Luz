@@ -16,18 +16,21 @@
                 <MenuItem x:Name="rClientesMenuItem"   Header="Registrar Clientes" Click="rClientesMenuItem_Click" />
                 <MenuItem x:Name="rReferidosMenuItem"   Header="Registrar Referidos" Click="rReferidosMenuItem_Click" /> 
                 <MenuItem x:Name="rRepresentantesMenuItem"   Header="Registrar Representantes" Click="rRepresentantesMenuItem_Click" /> 
+                <MenuItem  x:Name="rPropiedadesMenuItem"   Header="Registrar Propiedad" Click="rPropiedadesMenuItem_Click" /> 
                <MenuItem  x:Name="rCuotasMenuItem"   Header="Registrar Cuotas" Click="rCuotasMenuItem_Click" /> 
                <MenuItem  x:Name="rVentasMenuItem"   Header="Registrar Ventas" Click="rVentasMenuItem_Click" /> 
                <MenuItem  x:Name="rPagosMenuItem"   Header="Registrar Pagos" Click="rPagosMenuItem_Click" /> 
-               <MenuItem  x:Name="rPropiedadesMenuItem"   Header="Registrar Propiedad" Click="rPropiedadesMenuItem_Click" /> 
+              
                 </MenuItem>
 
                 <MenuItem Header="Consultas">
                 <MenuItem x:Name="cUsuariosMenuItem"  Header="Consultar Usuarios" Click="cUsuariosMenuItem_Click" />
                 <MenuItem x:Name="cClientesMenuItem"  Header="Consultar Clientes" Click="cClientesMenuItem_Click" />  
                 <MenuItem x:Name="cReferidosMenuItem"  Header="Consultar Referidos" Click="cReferidosMenuItem_Click" />  
-                <MenuItem x:Name="cRepresentantesMenuItem"  Header="Consultar Referidos" Click="cRepresentantesMenuItem_Click" />  
-                    
+                <MenuItem x:Name="cRepresentantesMenuItem"  Header="Consultar Represetante" Click="cRepresentantesMenuItem_Click" />  
+                <MenuItem x:Name="cPropiedadMenuItem"  Header="Consultar Propiedad" Click="cPropiedadMenuItem_Click" /> 
+                <MenuItem x:Name="cVentasMenuItem"  Header="Consultar Ventas" Click="cVentasMenuItem_Click" /> 
+                <MenuItem x:Name="cPagossMenuItem"  Header="Consultar Pagos" Click="cPagosMenuItem_Click" /> 
                 </MenuItem>
 
                 <MenuItem Header="Ayuda">

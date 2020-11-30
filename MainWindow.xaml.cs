@@ -59,6 +59,7 @@ namespace Fuente_de_Luz
             rPropiedades  ventana = new rPropiedades ();
             ventana.Show();
         }
+        
         private void cUsuariosMenuItem_Click(object sender, RoutedEventArgs e)
         {
             cUsuarios ventana = new cUsuarios();
@@ -77,6 +78,21 @@ namespace Fuente_de_Luz
         private void cRepresentantesMenuItem_Click(object sender, RoutedEventArgs e)
         {
             cRepresentantes ventana = new cRepresentantes();
+            ventana.Show();
+        }
+        private void cVentasMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cVentas  ventana = new cVentas ();
+            ventana.Show();
+        }
+        private void cPropiedadMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cPropiedad  ventana = new cPropiedad ();
+            ventana.Show();
+        }
+        private void cPagosMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cPagos  ventana = new cPagos ();
             ventana.Show();
         }
         private void AyudaMenu_Click(object sender, RoutedEventArgs e)

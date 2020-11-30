@@ -33,7 +33,8 @@ namespace Fuente_de_Luz.BLL
             try
             {
                 context.Ventas.Add(ventas);
-                paso = context.SaveChanges() > 0;
+                ventas.VentaId = context.SaveChanges();
+                paso = ventas.VentaId > 0;
             }
             catch (Exception)
             {
@@ -109,7 +110,8 @@ namespace Fuente_de_Luz.BLL
 
             try
             {
-                ventas= (Ventas)context.Ventas.Find(id);
+                ventas = (Ventas)context.Ventas.Find(id);
+                ventas.Cuotas = context.Cuotas.Where(e => e.VentaId == id).ToList();
             }
             catch (Exception)
             {

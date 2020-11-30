@@ -11,7 +11,7 @@ namespace Fuente_de_Luz.Entidades
         public String Nombre { get; set; }
 
         public String Descripcion { get; set; }
-        public decimal Precio { get; set; } 
+        public float Precio { get; set; } 
         public String Ubicacion{get; set;}
         public int NumPropiedad{get; set;}
 

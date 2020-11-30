@@ -5,61 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fuente_de_Luz.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Pagos" Height="640" Width="540" WindowStartupLocation="CenterScreen" Icon="/Resources/Agendar.png" ResizeMode="CanMinimize">
+        Title="Registro de Pagos" Height="800" Width="540"  Icon="/Resources/Agendar.png" >
     <Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Pago Id" FontWeight="Bold" FontSize="16"/>
-                <Label Content="Venta Id" FontWeight="Bold" FontSize="16"/>
-                <Label Content="Usuario Id" FontWeight="Bold" FontSize="16"/>
+       <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Pago Id" FontWeight="Bold" />
+                    <Label Content="Usuario Id" FontWeight="Bold"  Margin="106,0,0,0"/>
+                </StackPanel>
+                <!--——————————————————————————————————————————————[ BUSCAR ]——————————————————————————————————————————————-->
+                <StackPanel Orientation="Horizontal" Height="35">
+                   <TextBox x:Name="PagoIdTextBox" Text="{Binding PagoId}" Width="150"  FontWeight="Bold" VerticalContentAlignment="Center" />
+                   <!--—————————————————————————————[ Usuario Id ]—————————————————————————————-->
+                   <ComboBox x:Name="UsuarioIdComboBox" SelectedValue="{Binding UsuarioId}" VerticalContentAlignment="Center" Width="100" Margin="50,0,0,0" />
+                   <!--—————————————————————————————[ Boton Buscar ]—————————————————————————————-->
+                    <Button x:Name="BuscarButton" Margin="50,0,0,0" Width="120" Click="BuscarButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Height="30" Source="/Resources/Buscar.png" />
+                            <Label Content="Buscar"  FontWeight="Bold"/>
+                         
+                        </StackPanel>
+                    </Button>
 
-            </StackPanel>
-            <!--——————————————————————————————————————————————[ BUSCAR ]——————————————————————————————————————————————-->
-            <StackPanel Orientation="Horizontal" Height="35">
-            <TextBox x:Name="PagoIdTextBox" Text="{Binding PagoId}" Width="100" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" TextChanged="PagoIdTextBox_TextChanged"/>
-            <!--——————————————————————————————————————————————[ Venta ]——————————————————————————————————————————————-->
-             <TextBox x:Name="VentaIdTextBox" Text="{Binding VentaId}" Width="100" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center"/>
-                <!--—————————————————————————————[ Usuario Id ]—————————————————————————————-->
-                <ComboBox x:Name="UsuarioIdComboBox" SelectedValue="{Binding UsuarioId}" VerticalContentAlignment="Center" Width="100"  />
-                <!--—————————————————————————————[ Boton Buscar ]—————————————————————————————-->
-                <Button x:Name="BuscarButton" Margin="50,0,0,0" Width="100" Click="BuscarButton_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Height="30" Source="/Resources/Buscar.png" />
-                        <Label Content="Buscar" FontSize="17" FontWeight="Bold"/>
+                </StackPanel>
+                
+            
+                
+                <!--——————————————————————————————————————————————[ Nombres y Apellidos]——————————————————————————————————————————————-->
+                
+
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                   <StackPanel Orientation="Vertical" >
+                       <Label Content="Venta Id" FontWeight="Bold"/>
+                       <TextBox x:Name="VentaIdTextBox" Text="{Binding VentaId}" VerticalContentAlignment="Center" Height="30" Width="100" Margin="0,0,25,0"/>
                     </StackPanel>
-                </Button>
-            </StackPanel>
+                </StackPanel>
+
+                <Button x:Name="VentaBuscarButton" Margin="50,0,0,0" Width="120" Click="VentaBuscarButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Height="30" Source="/Resources/Buscar.png" />
+                            <Label Content="Buscar"  FontWeight="Bold"/>
+                         
+                        </StackPanel>
+                    </Button>
            
             <!--—————————————————————————————————————[ Fecha  ]—————————————————————————————————————-->
             <StackPanel Orientation="Vertical">
                 <Label x:Name="Fecha" Content="Fecha" FontWeight="Bold"/>
-                <DatePicker x:Name="FechaDatePicker" SelectedDate="{Binding Fecha}" Height="30"  IsEnabled = " False " VerticalContentAlignment="Center"/>
+                <DatePicker x:Name="FechaDatePicker" SelectedDate="{Binding Fecha}" Height="30"   VerticalContentAlignment="Center"/>
             </StackPanel>
              <!--—————————————————————————————————————[ Balance Anterior ]—————————————————————————————————————-->
-            <Label Content="BalanceAnterior" FontWeight="Bold" Margin="0,5,0,0"/>
-            <TextBox x:Name="BalanceAnteriorTextBox" Text="{Binding BalanceAnterior}" IsReadOnly="true" Height="30" Width="100" VerticalContentAlignment="Center" HorizontalAlignment="Left" />
+            
              <!--—————————————————————————————————————[ Monto ]—————————————————————————————————————-->
-            <Label Content="Monto" FontWeight="Bold" Margin="0,5,0,0"/>
-            <TextBox x:Name="MontoTextBox" Text="{Binding Monto}" Height="30" Width="100" VerticalContentAlignment="Center" HorizontalAlignment="Left" />
-            <!--——————————————————————[ Balance Pendiente]——————————————————————-->
-            <Label Content="Balance Pendiente" FontWeight="Bold" Margin="0,0,5,0"/>
-            <TextBox x:Name="BalancePendienteTextBox" Height="30" Width="100" IsReadOnly="true" Text="0"/>
+            
             
             <!--——————————————————————————————————————————————[ DETALLE ]——————————————————————————————————————————————-->
             <StackPanel Orientation="Vertical">
-                <GroupBox Header="Detalle de Pagos" Margin="0,10,0,0">
+                <GroupBox Header="Cuotas Pendientes" Margin="0,10,0,0">
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                             <!--——————————————————————[ Detalle Id ]——————————————————————-->
-                            <StackPanel Orientation="Vertical">
-                                <Label Content="Detalle Id"/>
-                                <TextBox x:Name="IdTextBox" Width="100" Margin="0,0,10,0"/>
-                            </StackPanel>
+                            
                             <!--——————————————————————[ Cuota Id ]——————————————————————-->
-                            <StackPanel Orientation="Vertical">
-                                <Label Content="Cuota Id"/>
-                                <TextBox x:Name="CuotaIdTextBox" Width="100" Margin="0,0,10,0"/>
-                            </StackPanel>
+                            
+
+                            
+                            
 
                             <!--——————————————————————[ AgregarFilaButton ]——————————————————————-->
                             <Button x:Name="AgregarFilaButton" Click="AgregarFilaButton_Click" Height="30" >
@@ -72,8 +82,16 @@
                         <!--——————————————————————————————————————————————[ DATA GRID ]——————————————————————————————————————————————-->
                         <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding Detalle}" Height="80" AutoGenerateColumns="False" Margin="0,10,0,0">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header=" Detalle Id" Binding="{Binding Id}"/>
-                                <DataGridTextColumn Header="Cuota Id" Binding="{Binding CuotaId}"/>
+                                <DataGridTextColumn Header=" NumCuotas" Binding="{Binding NumCuotas}"/>
+                                <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha}"/>
+                                <DataGridTextColumn Header="Monto" Binding="{Binding Monto}"/>
+                                <DataGridTextColumn Header="Balance" Binding="{Binding Balance}"/>
+                                <DataGridTextColumn Header="Valor" Binding="{Binding Valor}"/>
+                                <DataGridTextColumn Header="Descuento" Binding="{Binding Descuento}"/>
+                                <DataGridTextColumn Header="Total" Binding="{Binding Total}"/>
+                                
+                                
+
                             </DataGrid.Columns>
                         </DataGrid>
 
@@ -90,6 +108,23 @@
                     </StackPanel>
                 </GroupBox>
             </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <Label x:Name="Descuento" Content="Descuento" FontWeight="Bold"/>
+                <TextBox x:Name="DecuentoTextBox" Text="{Binding Descuento}" Height="30"   VerticalContentAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <Label x:Name="Observacion" Content="Observacion" FontWeight="Bold"/>
+                <TextBox x:Name="ObservacionTextBox" Text="{Binding Observacion}" Height="30"   VerticalContentAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <Label x:Name="Monto" Content="Monto" FontWeight="Bold"/>
+                <TextBox x:Name="MontoTextBox" Text="{Binding Monto}" Height="30"   VerticalContentAlignment="Center"/>
+            </StackPanel>
+
+
             <!--——————————————————————————————————————————————[ DETALLE FIN ]——————————————————————————————————————————————-->
 
             <!--——————————————————————————————————————————————[ BOTON NUEVO ]——————————————————————————————————————————————-->

@@ -7,8 +7,9 @@ using Fuente_de_Luz.BLL;
 namespace Fuente_de_Luz.UI.Registros
 {
     public partial class rClientes : Window
-    {
+   {
         private Clientes clientes = new Clientes();
+        private bool editando = false;
         public rClientes()
         {
             InitializeComponent();
@@ -37,11 +38,14 @@ namespace Fuente_de_Luz.UI.Registros
         private bool Validar()
         {
             bool Validado = true;
-            if (ClienteIdTextBox.Text.Length == 0)
-            {
-                Validado = false;
+            if(editando){
+                if (ClienteIdTextBox.Text.Length == 0){
+                    Validado = false;
                 MessageBox.Show("Transacción Fallida", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
+
+            
 
             return Validado;
         }
@@ -64,15 +68,18 @@ namespace Fuente_de_Luz.UI.Registros
                 ClienteIdTextBox.SelectAll();
                 ClienteIdTextBox.Focus();
             }
+            editando = true; 
         }
        
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
             Limpiar();
+            editando = false;
         }
          
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
+            bool paso = false;
             {
                 if (!Validar())
                     return;
@@ -203,8 +210,12 @@ namespace Fuente_de_Luz.UI.Registros
                 }
                 
                  
+                if(!editando){
+                paso = ClientesBLL.Guardar(clientes);
+                }else{
+                paso = ClientesBLL.Modificar(clientes);
+                }
                 
-                var paso = ClientesBLL.Guardar(clientes);
                 if (paso)
                 {
                     Limpiar();

@@ -6,9 +6,9 @@ using Fuente_de_Luz.Entidades;
 
 namespace Fuente_de_Luz.UI.Consultas
 {
-    public partial class cPropiedades : Window
+    public partial class cPropiedad : Window
     {
-        public cPropiedades()
+        public cPropiedad()
         {
             InitializeComponent();
         }
