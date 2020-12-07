@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Fuente_de_Luz.UI.Registros"
         xmlns:convertidor="clr-namespace:Fuente_de_Luz.Resources.Extra"
         mc:Ignorable="d"
-        Title="Registro  Referidos" Height="350" Width="500"  Icon="/Resources/Agendar.png" ResizeMode="CanMinimize" >
+        Title="Registro de Referidos" Height="350" Width="500"  Icon="/Resources/Agendar.png" ResizeMode="CanMinimize" >
       <Window.Resources>
            <convertidor:GenderConverter x:Key="GenderConverter"/>
         </Window.Resources>

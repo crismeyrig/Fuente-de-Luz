@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Fuente_de_Luz.UI.Registros"
         
         mc:Ignorable="d"
-        Title="Registro Representante" Height="350" Width="500"  Icon="/Resources/Agendar.png" ResizeMode="CanMinimize" >
+        Title="Registro de Representante" Height="350" Width="500"  Icon="/Resources/Agendar.png" ResizeMode="CanMinimize" >
       
     
     <Grid>

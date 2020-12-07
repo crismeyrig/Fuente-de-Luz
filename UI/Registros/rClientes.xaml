@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Fuente_de_Luz.UI.Registros"
         xmlns:convertidor="clr-namespace:Fuente_de_Luz.Resources.Extra"
         mc:Ignorable="d"
-        Title="Registro  Cliente" Height="600" Width="650"  Icon="/Resources/Agendar.png" ResizeMode="CanMinimize" >
+        Title="Registro de Cliente" Height="600" Width="650"  Icon="/Resources/Agendar.png" ResizeMode="CanMinimize" >
       <Window.Resources>
            <convertidor:GenderConverter x:Key="GenderConverter"/>
         </Window.Resources>

@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Fuente_de_Luz.UI.Registros"
         
         mc:Ignorable="d"
-        Title="Registro Ventas" Height="700" Width="570"  Icon="/Resources/Agendar.png" ResizeMode="CanMinimize" >
+        Title="Registro de Ventas" Height="700" Width="570"  Icon="/Resources/Agendar.png" ResizeMode="CanMinimize" >
        <Window.Resources>
            <convertidor:GenderConverter x:Key="GenderConverter"/>
         </Window.Resources>
@@ -16,7 +16,7 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Venta Id" FontWeight="Bold" />
-                    <Label Content="Usuario Id" FontWeight="Bold"  Margin="106,0,0,0"/>
+                    <Label Content="               Usuario Id" FontWeight="Bold"  Margin="106,0,0,0"/>
                 </StackPanel>
                 <!-- Buscar—-->
                 <StackPanel Orientation="Horizontal" Height="35">

@@ -10,7 +10,7 @@
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
             <StackPanel Orientation="Horizontal">
-                <Label Content="Propiedad Id" FontWeight="Bold" />
+                <Label Content="         Propiedad Id" FontWeight="Bold" />
                 <Label Content="Usuario Id" FontWeight="Bold"  Margin="106,0,0,0"/>
             </StackPanel>
             <!-- Buscar—-->
