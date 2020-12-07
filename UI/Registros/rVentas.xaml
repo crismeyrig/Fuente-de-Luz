@@ -20,7 +20,7 @@
                 </StackPanel>
                 <!-- Buscar—-->
                 <StackPanel Orientation="Horizontal" Height="35">
-                   <TextBox x:Name="VentaIdTextBox" Text="{Binding VentaId}" Width="150"  FontWeight="Bold" VerticalContentAlignment="Center" />
+                   <TextBox x:Name="VentaIdTextBox" Text="{Binding VentaId}" Width="150"  FontWeight="Bold" VerticalContentAlignment="Center"  TextChanged = "VentaIdTextbox_TextChanged"/>
                    <!-- Usuario Id ———-->
                    <ComboBox x:Name="UsuarioIdComboBox" SelectedValue="{Binding UsuarioId}" VerticalContentAlignment="Center" Width="100" Margin="50,0,0,0" />
                    <!--—— Boton Buscar —-->
