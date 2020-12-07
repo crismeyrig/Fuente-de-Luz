@@ -34,10 +34,6 @@ namespace Fuente_de_Luz.UI.Consultas
                     case 3:                       
                         listado = VentasBLL.GetList(e => e.PropiedadId == int.Parse(CriterioTextBox.Text));
                         break;   
-                     
-                   
-
-                    
                     case 4:                       
                         listado = VentasBLL.GetList(e => e.Descuento == float.Parse(CriterioTextBox.Text));
                         break;    
@@ -53,6 +49,7 @@ namespace Fuente_de_Luz.UI.Consultas
                     case 7:                       
                         listado = VentasBLL.GetList(e => e.NumCuotas == int.Parse(CriterioTextBox.Text));
                         break; 
+                     
                     
                        
                 }

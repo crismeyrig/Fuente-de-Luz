@@ -30,9 +30,15 @@
               <None Remove="Resources/Entrar.png"/>
               <None Remove="Resources/Usuario.png"/>
               <None Remove="Resources/Candado.png"/>
-              <None Remove="Resources/Home.png"/>
               <None Remove="Resources/Agendar.png"/>
               <None Remove="Resources/Lista.png"/>
+              <None Remove="Resources/Carcular.png"/>
+              <None Remove="Resources/Mas.png"/>
+              <None Remove="Resources/Identificacion.png"/>
+              <None Remove="Resources/Pagos.png"/>
+              <None Remove="Resources/Ventas.png"/>
+              <None Remove="Resources/Propiedades.png"/>
+              <None Remove="Resources/Home.png"/>
             
             
           </ItemGroup>
@@ -48,9 +54,15 @@
             <Resource Include="Resources/Usuario.png"/>
             <Resource Include="Resources/Cancelar.png"/>
             <Resource Include="Resources/Candado.png"/>
-            <Resource Include="Resources/Home.png"/>
             <Resource Include="Resources/Agendar.png"/>
             <Resource Include="Resources/Lista.png"/>
+            <Resource Include="Resources/Carcular.png"/>
+            <Resource Include="Resources/Mas.png"/>
+            <Resource Include="Resources/Identificacion.png"/>
+            <Resource Include="Resources/Pagos.png"/>
+            <Resource Include="Resources/Ventas.png"/>
+            <Resource Include="Resources/Propiedades.png"/>
+            <Resource Include="Resources/Home.png"/>
 
             </ItemGroup>
 

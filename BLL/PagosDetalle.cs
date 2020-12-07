@@ -5,39 +5,40 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Linq;
-using System.Text;
 
 namespace Fuente_de_Luz.BLL
 {
-    class VentasBLL
+    class PagosDetalleBLL
     {
-        public static bool Guardar(Ventas ventas)
+        public static bool Guardar(PagosDetalle pagosDetalle)
         {
-            if (!Existe(ventas.VentaId))
-                return Insertar(ventas);
+            if (!Existe(pagosDetalle.Id))
+                return Insertar(pagosDetalle);
 
             else
-                return Modificar(ventas);
+                return Modificar(pagosDetalle);
         }
 
-        private static bool Existe(object ventaId)
+        
+
+        private static bool Existe(object Id)
         {
             throw new NotImplementedException();
         }
 
-        private static bool Insertar(Ventas ventas)
+        private static bool Insertar(PagosDetalle pagosDetalle)
         {
             Contexto context = new Contexto();
             bool paso = false;
 
             try
             {
-                context.Ventas.Add(ventas);  
-                paso = context.SaveChanges() > 0; 
-                ventas.VentaId = context.Ventas.Max(item => item.VentaId);
+                context.PagosDetalle.Add(pagosDetalle);
+                paso = context.SaveChanges() > 0;
             }
             catch (Exception)
-            { 
+            {
+
                 throw;
             }
             finally
@@ -45,11 +46,12 @@ namespace Fuente_de_Luz.BLL
                 context.Dispose();
 
             }
+            return paso;
 
-            return paso; 
+
         }
 
-        public static bool Modificar(Ventas ventas)
+        public static bool Modificar(PagosDetalle pagosDetalle)
         {
 
             Contexto context = new Contexto();
@@ -57,7 +59,7 @@ namespace Fuente_de_Luz.BLL
 
             try
             {
-                context.Entry(ventas).State = EntityState.Modified;
+                context.Entry(pagosDetalle).State = EntityState.Modified;
                 paso = context.SaveChanges() > 0;
             }
             catch (Exception)
@@ -80,11 +82,11 @@ namespace Fuente_de_Luz.BLL
 
             try
             {
-                var ventas = context.Ventas.Find(id);
+                var pagosDetalle = context.PagosDetalle.Find(id);
 
-                if (ventas != null)
+                if (pagosDetalle != null)
                 {
-                    context.Ventas.Remove(ventas);
+                    context.PagosDetalle.Remove(pagosDetalle);
                     paso = context.SaveChanges() > 0;
 
                 }
@@ -101,15 +103,14 @@ namespace Fuente_de_Luz.BLL
             return paso;
 
         }
-        public static Ventas Buscar(int id)
+        public static PagosDetalle Buscar(int id)
         {
-            Ventas ventas;
+            PagosDetalle pagosDetalle;
             Contexto context = new Contexto();
 
             try
             {
-                ventas = (Ventas)context.Ventas.Find(id);
-                ventas.Cuotas = context.Cuotas.Where(e => e.VentaId == id).ToList();
+                pagosDetalle = (PagosDetalle)context.PagosDetalle.Find(id);
             }
             catch (Exception)
             {
@@ -120,7 +121,7 @@ namespace Fuente_de_Luz.BLL
             {
                 context.Dispose();
             }
-            return ventas;
+            return pagosDetalle;
 
         }
         public static bool Existe(int id)
@@ -131,7 +132,7 @@ namespace Fuente_de_Luz.BLL
 
             try
             {
-                encontrado = context.Ventas.Find(id) != null;
+                encontrado = context.PagosDetalle.Find(id) != null;
             }
             catch (Exception)
             {
@@ -147,14 +148,14 @@ namespace Fuente_de_Luz.BLL
 
         }
         
-        public static List<Ventas> GetList(Expression<Func<Ventas, bool>> criterio)
+        public static List<PagosDetalle> GetList(Expression<Func<PagosDetalle, bool>> criterio)
         {
-            List<Ventas> lista = new List<Ventas>();
+            List<PagosDetalle> lista = new List<PagosDetalle>();
             Contexto context = new Contexto();
 
             try
             {
-                lista = context.Ventas.Where(criterio).ToList();
+                lista = context.PagosDetalle.Where(criterio).ToList();
             }
             catch (Exception)
             {

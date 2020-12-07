@@ -47,7 +47,16 @@ namespace Fuente_de_Luz.UI.Consultas
 
                     case 7:                       
                         listado = ClientesBLL.GetList(e => e.Email.Contains(CriterioTextBox.Text));
-                        break;     
+                        break;  
+                    case 8:                       
+                        listado = ClientesBLL.GetList(e => e.EstadoCivil.Contains(CriterioTextBox.Text, StringComparison.OrdinalIgnoreCase));
+                        break;
+                    case 9:                       
+                        listado = ClientesBLL.GetList(e => e.Ocupacion.Contains(CriterioTextBox.Text, StringComparison.OrdinalIgnoreCase));
+                        break; 
+                    case 10:                       
+                        listado = ClientesBLL.GetList(e => e.Religion.Contains(CriterioTextBox.Text, StringComparison.OrdinalIgnoreCase));
+                        break;          
                     
                        
                 }

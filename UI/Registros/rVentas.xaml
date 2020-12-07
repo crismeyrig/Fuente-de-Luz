@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Fuente_de_Luz.UI.Registros"
         
         mc:Ignorable="d"
-        Title="Registro Ventas" Height="700" Width="530"  Icon="/Resources/Agendar.png" ResizeMode="CanMinimize" >
+        Title="Registro Ventas" Height="700" Width="570"  Icon="/Resources/Agendar.png" ResizeMode="CanMinimize" >
        <Window.Resources>
            <convertidor:GenderConverter x:Key="GenderConverter"/>
         </Window.Resources>
@@ -18,12 +18,12 @@
                     <Label Content="Venta Id" FontWeight="Bold" />
                     <Label Content="Usuario Id" FontWeight="Bold"  Margin="106,0,0,0"/>
                 </StackPanel>
-                <!--——————————————————————————————————————————————[ BUSCAR ]——————————————————————————————————————————————-->
+                <!-- Buscar—-->
                 <StackPanel Orientation="Horizontal" Height="35">
                    <TextBox x:Name="VentaIdTextBox" Text="{Binding VentaId}" Width="150"  FontWeight="Bold" VerticalContentAlignment="Center" />
-                   <!--—————————————————————————————[ Usuario Id ]—————————————————————————————-->
+                   <!-- Usuario Id ———-->
                    <ComboBox x:Name="UsuarioIdComboBox" SelectedValue="{Binding UsuarioId}" VerticalContentAlignment="Center" Width="100" Margin="50,0,0,0" />
-                   <!--—————————————————————————————[ Boton Buscar ]—————————————————————————————-->
+                   <!--—— Boton Buscar —-->
                     <Button x:Name="BuscarButton" Margin="50,0,0,0" Width="120" Click="BuscarButton_Click">
                         <StackPanel Orientation="Horizontal">
                             <Image Height="30" Source="/Resources/Buscar.png" />
@@ -34,10 +34,7 @@
 
                 </StackPanel>
                 
-            
-                
-                <!--——————————————————————————————————————————————[ Nombres y Apellidos]——————————————————————————————————————————————-->
-                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+               <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                    <StackPanel Orientation="Vertical" >
                        <Label Content="Cliente Id" FontWeight="Bold"/>
                        <ComboBox x:Name="ClienteIdComboBox" SelectedValue="{Binding ClienteId}" VerticalContentAlignment="Center" Height="30" Width="100" Margin="0,0,25,0"/>
@@ -45,18 +42,15 @@
                 </StackPanel>
             
                
-               <!--——————————————————————————————————————————————[ Telefono y FechaNacimiento ]——————————————————————————————————————————————-->
-               <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
                 
-                 
-
-                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                            <!--——————————————————————[ Propiedad ]——————————————————————-->
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <!--———— Propiedad ———-->
                             <StackPanel Orientation="Vertical">
                                 <Label Content="PropiedadId"/>
                                 <TextBox x:Name="PropiedadIdTextBox"  Text="{Binding PropiedadId}" KeyDown="Propiedad_OnKeyDownHandler"  Height="30" Width="100" Margin="0,0,25,0"/>
                             </StackPanel>
-                            <!--——————————————————————[ NombrePropiedad ]——————————————————————-->
+                            <!--— NombrePropiedad ——-->
                             <StackPanel Orientation="Vertical" Margin="0,0,40,0" >
                                 <Label Content="" HorizontalAlignment="Center"/>
                                 <TextBox x:Name="NombrePropiedadTextBox" IsReadOnly="True"  Height="30" Width="100" Text="" VerticalContentAlignment="Center"/>
@@ -72,14 +66,14 @@
                 </StackPanel>
 
 
-               <!--—————————————————————————————————————[ Fecha ]—————————————————————————————————————-->
+               
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                   <!--—————————————————————————————————————[ Fecha ]—————————————————————————————————————-->
+                  
                     <StackPanel Orientation="Vertical">
                       <Label Content="Fecha" FontWeight="Bold" />
                        <DatePicker x:Name="FechaTextBox" SelectedDate="{Binding Fecha}" Height="30" Width="205" VerticalContentAlignment="Center"/>
                    </StackPanel>
-                     <!--—————————————————————————————————————[ Fecha ]—————————————————————————————————————-->
+                    
                      <StackPanel Orientation="Vertical" Margin="50,0,0,0" >
                         <Label Content="Fecha Primer Pago" FontWeight="Bold" />
                         <DatePicker x:Name="FechaPrimerPagoTextBox" SelectedDate="{Binding FechaPrimerPago}" Height="30" Width="205" VerticalContentAlignment="Center"/>
@@ -93,7 +87,7 @@
                        <TextBox x:Name="DescuentoTextBox" KeyDown="Descuento_OnKeyDownHandler" Text="{Binding Descuento}" Height="30" Width="200" VerticalContentAlignment="Center" HorizontalAlignment="Left" />
                     </StackPanel>
 
-                <!--—————————————————————————————————————[ Tipo Negocio ]—————————————————————————————————————-->
+                
                 <StackPanel Orientation="Vertical" Margin="50,0,0,0" >
                    <Label Content="Tipo Negocio: " FontWeight="Bold" />
                    <RadioButton x:Name="NuevoRadioButton" GroupName="Tipo Negocio" Content="Nuevo" 
@@ -105,38 +99,38 @@
                 </StackPanel> 
                 </StackPanel>  
 
-            <!--——————————————————————————————————————————————[ DETALLE ]——————————————————————————————————————————————-->
+            <!--—— Detalle——-->
             <StackPanel Orientation="Vertical">
                 <GroupBox Header="Detalle de Venta" Margin="0,10,0,0">
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                            <!--——————————————————————[ LibroId ]——————————————————————-->
+                            <!--— Monto Total—-->
                             <StackPanel Orientation="Vertical">
-                                <Label Content="Monto Total"/>
+                                <Label Content="Monto "/>
                                 <TextBox x:Name="MontoTextBox" Text="{Binding Monto}" IsReadOnly="true" Height="23" Width="100" Margin="0,0,25,0"/>
                             </StackPanel>
 
-                            <!--——————————————————————[ Cantidad ]——————————————————————-->
+                            <!-- Cantidad -->
                             <StackPanel Orientation="Vertical" Margin="0,0,40,0" >
-                                <Label Content="Inicial" HorizontalAlignment="Center"/>
+                                <Label Content="Valor Inicial" HorizontalAlignment="Center"/>
                                 <TextBox x:Name="ValorInicialTextBox" Text="{Binding Valor}" KeyDown="ValorInicial_OnKeyDownHandler" Height="23" Width="100"  VerticalContentAlignment="Center"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical" Margin="0,0,40,0" >
-                                <Label Content="Cuotas "  HorizontalAlignment="Center"/>
+                                <Label Content="Cuota "  HorizontalAlignment="Center"/>
                                 <TextBox x:Name="CantCuotasTextBox" Text="{Binding NumCuotas}" Height="23" Width="100"  VerticalContentAlignment="Center"/>
                             </StackPanel>
 
-                            <!--——————————————————————[ AgregarFilaButton ]——————————————————————-->
+                            <!--—— AgregarFilaButton -->
                             <Button x:Name="AgregarFilaButton" Click="CalcularCuotasButton_Click" Height="30" >
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="/Resources/Mas.png" Height="25"/>
+                                    <Image Source="/Resources/Carcular.png" Height="25"/>
                                     <Label Content="Calcular Cuotas"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>
-                        <!--——————————————————————————————————————————————[ DATA GRID ]——————————————————————————————————————————————-->
-                        <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding Cuotas}" Height="80" AutoGenerateColumns="False" Margin="0,10,0,0">
+                        <!--—Data Grid——-->
+                        <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding Cuotas}" Height="100" AutoGenerateColumns="False" Margin="0,10,0,0">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="NumCuota" Binding="{Binding NumCuota}"/>
                                 <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha}"/>
@@ -144,8 +138,8 @@
                             </DataGrid.Columns>
                         </DataGrid>
 
-                        <!--——————————————————————[ RemoverFilaButton ]——————————————————————-->
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,0">
+                        <!--— RemoverFilaButton ———-->
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,10,0,0">
                             <Button x:Name="RemoverFilaButton" Click="RemoverFilaButton_Click" Width="175" Margin="0,0,55,0" >
                                 <StackPanel Orientation="Horizontal">
                                     <Image Source="/Resources/Eliminar.png" Height="25"/>
@@ -158,9 +152,9 @@
                     </StackPanel>
                 </GroupBox>
             </StackPanel>
-            <!--——————————————————————————————————————————————[ DETALLE FIN ]——————————————————————————————————————————————-->
+            
 
-            <!--——————————————————————————————————————————————[ BOTON NUEVO ]——————————————————————————————————————————————-->
+            <!--——Boton Nuevo———-->
             <StackPanel Orientation="Horizontal" Height="35" Margin="0,15,0,0" HorizontalAlignment="Center">
                 <Button x:Name="NuevoButton" Click="NuevoButton_Click" Width="120">
                     <StackPanel Orientation="Horizontal">
@@ -168,14 +162,14 @@
                         <Label Content="Nuevo"  FontWeight="Bold"/>
                     </StackPanel>
                 </Button>
-                <!--——————————————————————————————————————————————[ BOTON GUARDAR ]——————————————————————————————————————————————-->
+                
                 <Button x:Name="GuardarButton" Click="GuardarButton_Click" Width="120" Margin="50,0,0,0" >
                     <StackPanel Orientation="Horizontal">
                         <Image Height="30" Source="/Resources/Guardar.png"/>
                         <Label Content="Guardar"  FontWeight="Bold"/>
                     </StackPanel>
                 </Button>
-                <!--——————————————————————————————————————————————[ BOTON ELIMINAR ]——————————————————————————————————————————————-->
+                
                 <Button x:Name="EliminarButton" Click="EliminarButton_Click" Width="120" Margin="50,0,0,0" >
                     <StackPanel Orientation="Horizontal">
                         <Image Height="30" Source="/Resources/Eliminar.png"/>

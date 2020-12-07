@@ -71,13 +71,16 @@ namespace Fuente_de_Luz.UI.Registros
             {
                 this.venta = encontrado;
                 Cargar();
-                buscarPropiedad();
+                buscarPropiedad();   
+
+                DetalleDataGrid.ItemsSource = null;
+                DetalleDataGrid.ItemsSource = this.venta.Cuotas;  
             }
             else
             {
                 this.venta = new Ventas();
                 this.DataContext = this.venta;
-                MessageBox.Show($"Este Cliente no fue encontrado.\n\nAsegúrese que existe o cree uno nuevo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show($"Este Venta no fue encontrado.\n\nAsegúrese que existe o cree uno nuevo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                 Limpiar();
                 VentaIdTextBox.SelectAll();
                 VentaIdTextBox.Focus();
@@ -90,7 +93,7 @@ namespace Fuente_de_Luz.UI.Registros
         }
          
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
-            {
+        {
                 if (!Validar())
                     return;
                 if (VentaIdTextBox.Text.Trim() == string.Empty)
@@ -120,6 +123,7 @@ namespace Fuente_de_Luz.UI.Registros
                 venta.TipoNegocio = MejoraRadioButton.IsChecked == true ? "Mejora" : "Nuevo";
                 venta.Monto = float.Parse(MontoTextBox.Text);   
                 venta.Valor = int.Parse(ValorInicialTextBox.Text);
+                venta.Balance = venta.Monto;
                 venta.NumCuotas = int.Parse(CantCuotasTextBox.Text);
  
                 var paso = VentasBLL.Guardar(venta);
@@ -136,11 +140,11 @@ namespace Fuente_de_Luz.UI.Registros
                     } 
 
                     Limpiar();
-                    MessageBox.Show("Transacción Exitosa", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Venta Realizada  (Guardado)"  , "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
-                    MessageBox.Show("Transacción Fallida", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+                    MessageBox.Show("Venta Fallida", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
         
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
@@ -164,7 +168,7 @@ namespace Fuente_de_Luz.UI.Registros
             }
             catch
             {
-                MessageBox.Show($"El valor digitado en el campo (Cliente Id) no es un número.\n\nPor favor, digite un número.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show($"El valor digitado en el campo (Venta Id) no es un número.\n\nPor favor, digite un número.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                 VentaIdTextBox.Text = "0";
                 VentaIdTextBox.Focus();
                 VentaIdTextBox.SelectAll();
@@ -258,6 +262,8 @@ namespace Fuente_de_Luz.UI.Registros
 
         private void RemoverFilaButton_Click(object sender, RoutedEventArgs e)
         { 
+            
+
 
         }
     }

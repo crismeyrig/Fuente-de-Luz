@@ -62,7 +62,7 @@ namespace Fuente_de_Luz.UI.Registros
             {
                 this.representantes = new Representantes();
                 this.DataContext = this.representantes;
-                MessageBox.Show($"Este Cliente no fue encontrado.\n\nAsegúrese que existe o cree uno nuevo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show($"Este Representantes no fue encontrado.\n\nAsegúrese que existe o cree uno nuevo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                 Limpiar();
                 RepresentanteIdTextBox.SelectAll();
                 RepresentanteIdTextBox.Focus();

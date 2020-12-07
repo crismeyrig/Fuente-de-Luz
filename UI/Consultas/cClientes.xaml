@@ -24,6 +24,9 @@
                         <ComboBoxItem Content="Direccion"/>
                         <ComboBoxItem Content="Celular"/>
                         <ComboBoxItem Content="Email"/>
+                        <ComboBoxItem Content="Estado Civil"/>
+                        <ComboBoxItem Content="Ocupacion"/>
+                        <ComboBoxItem Content="Religion"/>
                     </ComboBox>
                 </StackPanel>
                 
@@ -52,6 +55,9 @@
                         <DataGridTextColumn Header="Direccion" Binding="{Binding Direccion}"/>
                         <DataGridTextColumn Header="Celular" Binding="{Binding Celular}"/>
                         <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                        <DataGridTextColumn Header="Estado Civil" Binding="{Binding EstadoCivil}"/>
+                        <DataGridTextColumn Header="Ocupacion" Binding="{Binding Ocupacion}"/>
+                        <DataGridTextColumn Header="Religion" Binding="{Binding Religion}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

@@ -209,6 +209,7 @@ namespace Fuente_de_Luz.UI.Registros
                     return;
                 }
                 
+                
                  
                 if(!editando){
                 paso = ClientesBLL.Guardar(clientes);

@@ -44,11 +44,7 @@ namespace Fuente_de_Luz
             rVentas  ventana = new rVentas ();
             ventana.Show();
         }
-        private void rCuotasMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            rCuotas  ventana = new rCuotas ();
-            ventana.Show();
-        }
+        
         private void rPagosMenuItem_Click(object sender, RoutedEventArgs e)
         {
             rPagos  ventana = new rPagos ();

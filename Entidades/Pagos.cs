@@ -29,5 +29,9 @@ namespace Fuente_de_Luz.Entidades
         [ForeignKey("PagoId")]
         public virtual List<PagosDetalle> PagosDetalle { get; set; }
 
+        public Pagos(){ 
+            this.PagosDetalle = new List<PagosDetalle>();
+        }
+
     }       
 }

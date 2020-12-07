@@ -32,7 +32,7 @@ namespace Fuente_de_Luz.BLL
             try
             {
                 context.Pagos.Add(pagos);
-                paso = context.SaveChanges() > 0;
+                paso = context.SaveChanges() > 0; 
             }
             catch (Exception)
             {
@@ -85,8 +85,8 @@ namespace Fuente_de_Luz.BLL
                 if (pagos != null)
                 {
                     context.Pagos.Remove(pagos);
-                    paso = context.SaveChanges() > 0;
-
+                    paso = context.SaveChanges() > 0; 
+                    pagos.PagoId = context.Pagos.Max(item => item.PagoId); 
                 }
             }
             catch (Exception)
@@ -109,6 +109,7 @@ namespace Fuente_de_Luz.BLL
             try
             {
                 pagos = (Pagos)context.Pagos.Find(id);
+                pagos.PagosDetalle = context.PagosDetalle.Where(e => e.PagoId == id).ToList();
             }
             catch (Exception)
             {

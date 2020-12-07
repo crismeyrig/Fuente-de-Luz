@@ -16,7 +16,7 @@ namespace Fuente_de_Luz.Entidades
         public DateTime Fecha{get; set;}
 
          public int NumCuota { get; set; }
-         public int Valor { get; set; }  
+         public float Valor { get; set; }  
 
         public float Monto { get; set; }        
 

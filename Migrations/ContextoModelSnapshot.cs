@@ -89,8 +89,8 @@ namespace Fuente_de_Luz.Migrations
                     b.Property<int>("UsuarioId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Valor")
-                        .HasColumnType("INTEGER");
+                    b.Property<float>("Valor")
+                        .HasColumnType("REAL");
 
                     b.Property<int>("VentaId")
                         .HasColumnType("INTEGER");
@@ -161,7 +161,7 @@ namespace Fuente_de_Luz.Migrations
                     b.Property<int>("NumCuotas")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("PagoId")
+                    b.Property<int>("PagoId")
                         .HasColumnType("INTEGER");
 
                     b.Property<float>("Total")
@@ -365,7 +365,9 @@ namespace Fuente_de_Luz.Migrations
                 {
                     b.HasOne("Fuente_de_Luz.Entidades.Pagos", null)
                         .WithMany("PagosDetalle")
-                        .HasForeignKey("PagoId");
+                        .HasForeignKey("PagoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Fuente_de_Luz.Entidades.Pagos", b =>

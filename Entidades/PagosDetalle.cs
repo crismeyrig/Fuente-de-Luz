@@ -9,6 +9,8 @@ namespace Fuente_de_Luz.Entidades
 
         public int CuotaId { get; set; }
 
+        public int PagoId { get; set; }
+
         public float Monto { get; set; }
 
         public float Balance{get; set;} 
@@ -30,7 +32,7 @@ namespace Fuente_de_Luz.Entidades
             this.Balance = Balance;
             this.Descuento  = Descuento;
             this.NumCuotas = NumCuotas;
-            this.Total = Total;
+            this.Total = Total; 
         }
     }
 }

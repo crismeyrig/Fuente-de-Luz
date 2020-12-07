@@ -5,51 +5,118 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fuente_de_Luz"
         mc:Ignorable="d"
-        Title="Menu Principal" Height="400" Width="500">
+        Title="Menu Principal" Height="400" Width="500"   Icon="/Resources/Home.png">
     <Grid>
-
-    <StackPanel>
-          
-                    <Menu IsMainMenu="True" VerticalAlignment="Top">
+        <StackPanel>
+            <!-- MENU ITEMS -->
+            <Menu Height="24" FontSize="15">
+                <!-- Registros -->
                 <MenuItem Header="Registros">
-                <MenuItem x:Name="rUsuariosMenuItem"   Header="Registrar Usuarios" Click="rUsuariosMenuItem_Click" />
-                <MenuItem x:Name="rClientesMenuItem"   Header="Registrar Clientes" Click="rClientesMenuItem_Click" />
-                <MenuItem x:Name="rReferidosMenuItem"   Header="Registrar Referidos" Click="rReferidosMenuItem_Click" /> 
-                <MenuItem x:Name="rRepresentantesMenuItem"   Header="Registrar Representantes" Click="rRepresentantesMenuItem_Click" /> 
-                <MenuItem  x:Name="rPropiedadesMenuItem"   Header="Registrar Propiedad" Click="rPropiedadesMenuItem_Click" /> 
-               <MenuItem  x:Name="rCuotasMenuItem"   Header="Registrar Cuotas" Click="rCuotasMenuItem_Click" /> 
-               <MenuItem  x:Name="rVentasMenuItem"   Header="Registrar Ventas" Click="rVentasMenuItem_Click" /> 
-               <MenuItem  x:Name="rPagosMenuItem"   Header="Registrar Pagos" Click="rPagosMenuItem_Click" /> 
-              
-                </MenuItem>
+                    <MenuItem x:Name="rUsuariosMenuItem" Click="rUsuariosMenuItem_Click" Header="Registrar Usuario">
+                        <MenuItem.Icon>
+                            <Image Source="/Resources/Usuario.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
 
+                    <MenuItem x:Name="rClientesMenuItem" Click="rClientesMenuItem_Click" Header="Registrar Clientes">
+                        <MenuItem.Icon>
+                            <Image Source="/Resources/Identificacion.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem x:Name="rReferidosMenuItem" Click="rReferidosMenuItem_Click" Header="Registrar Referidos">
+                        <MenuItem.Icon>
+                            <Image Source="/Resources/Identificacion.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem x:Name="rRepresentantesMenuItem" Click="rRepresentantesMenuItem_Click" Header="Registrar Representantes">
+                        <MenuItem.Icon>
+                            <Image Source="/Resources/Identificacion.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem x:Name="rPropiedadesMenuItem" Click="rPropiedadesMenuItem_Click" Header="Registrar Propiedades">
+                        <MenuItem.Icon>
+                            <Image Source="/Resources/Propiedades.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+
+                    <MenuItem x:Name="rVentaMenuItem" Click="rVentasMenuItem_Click" Header="Registrar Venta">
+                        <MenuItem.Icon>
+                            <Image Source="/Resources/Ventas.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem x:Name="rPagosMenuItem" Click="rPagosMenuItem_Click" Header="Registrar Pagos">
+                        <MenuItem.Icon>
+                            <Image Source="/Resources/Pagos.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+
+
+
+                </MenuItem>   
+                <!-- Consultas —-->
                 <MenuItem Header="Consultas">
-                <MenuItem x:Name="cUsuariosMenuItem"  Header="Consultar Usuarios" Click="cUsuariosMenuItem_Click" />
-                <MenuItem x:Name="cClientesMenuItem"  Header="Consultar Clientes" Click="cClientesMenuItem_Click" />  
-                <MenuItem x:Name="cReferidosMenuItem"  Header="Consultar Referidos" Click="cReferidosMenuItem_Click" />  
-                <MenuItem x:Name="cRepresentantesMenuItem"  Header="Consultar Represetante" Click="cRepresentantesMenuItem_Click" />  
-                <MenuItem x:Name="cPropiedadMenuItem"  Header="Consultar Propiedad" Click="cPropiedadMenuItem_Click" /> 
-                <MenuItem x:Name="cVentasMenuItem"  Header="Consultar Ventas" Click="cVentasMenuItem_Click" /> 
-                <MenuItem x:Name="cPagossMenuItem"  Header="Consultar Pagos" Click="cPagosMenuItem_Click" /> 
+                    <MenuItem x:Name="cUsuariosMenuItem" Click="cUsuariosMenuItem_Click" Header="Consultar Usuarios">
+                        <MenuItem.Icon>
+                            <Image Source="/Resources/Usuario.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem x:Name="cClientesMenuItem" Click="cClientesMenuItem_Click" Header="Consultar Clientes">
+                        <MenuItem.Icon>
+                            <Image Source="/Resources/Identificacion.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    
+                        <MenuItem x:Name="cReferidosMenuItem" Click="cReferidosMenuItem_Click" Header="Consultar Referidos">
+                            <MenuItem.Icon>
+                                <Image Source="/Resources/Identificacion.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        
+                        
+                    
+
+                    
+                        <MenuItem x:Name="cRepresentantesMenuItem" Click="cRepresentantesMenuItem_Click" Header="Consultar Representantes">
+                            <MenuItem.Icon>
+                                <Image Source="/Resources/Identificacion.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        
+                            
+
+                    
+                        <MenuItem x:Name="cPropiedadMenuItem" Click=" cPropiedadMenuItem_Click" Header="Consultar Propiedades">
+                            <MenuItem.Icon>
+                                <Image Source="/Resources/Propiedades.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+
+                        <MenuItem x:Name="cVentasMenuItem" Click="cVentasMenuItem_Click" Header="Consultar Ventas">
+                            <MenuItem.Icon>
+                                <Image Source="/Resources/Ventas.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+
+
+                        <MenuItem x:Name="cPagosMenuItem" Click="cPagosMenuItem_Click" Header="Consultar Pagos">
+                            <MenuItem.Icon>
+                                <Image Source="/Resources/Pagos.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        
+                        
+                   
                 </MenuItem>
-
-                <MenuItem Header="Ayuda">
-                    <Menu/>
-                </MenuItem>
-
-                <StackPanel Orientation="Vertical"  Height="50,0" Width="50,0"   HorizontalAlignment="Center" VerticalAlignment="Center">
-                      <Image Source="/Resources/Home.png" Width="70"/>
-                       <Label Content="Menú Principal" FontWeight="Bold" Height="50" FontSize="36" HorizontalAlignment="Center" />
-
-                </StackPanel>
-
-
             </Menu>
+            
         </StackPanel>
-        
-       
-
-    
-
     </Grid>
 </Window>

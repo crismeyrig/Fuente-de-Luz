@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fuente_de_Luz.UI.Consultas"
         mc:Ignorable="d"
-        Title="Consultar usuarios" Height="480" Width="680"  Icon="/Resources/Lista.png">
+        Title="Consultar usuarios" Height="480" Width="900"  Icon="/Resources/Lista.png">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="0,5,0,0" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" Height="60">
@@ -18,7 +18,6 @@
                         <ComboBoxItem Content="Usuario Id"/>
                         <ComboBoxItem Content="Cliente Id"/>
                         <ComboBoxItem Content="Propiedad Id"/>
-                        <ComboBoxItem Content="Precio"/>
                         <ComboBoxItem Content="Fecha"/>
                         <ComboBoxItem Content="FechaPrimerPago"/>
                         <ComboBoxItem Content="Descuento"/>
@@ -43,13 +42,12 @@
                
                
             </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Width="635" >
+            <StackPanel HorizontalAlignment="Left" Width="900" >
                 <DataGrid x:Name="DatosDataGrid" Height="330" IsReadOnly="True" AutoGenerateColumns="False" AlternatingRowBackground="Gainsboro" TextBlock.TextAlignment="Center">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Venta Id" Binding="{Binding VentaId}"/>
                         <DataGridTextColumn Header="Propiedad Id" Binding="{Binding PropiedadId}"/>
                         <DataGridTextColumn Header="Cliente Id" Binding="{Binding ClienteId}"/>
-                        <DataGridTextColumn Header="Precio" Binding="{Binding Precio}"/>
                         <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha}"/>
                         <DataGridTextColumn Header="FechaPrimerPago" Binding="{Binding FechaPrimerPago}"/>
                         <DataGridTextColumn Header="Descuento" Binding="{Binding Descuento}"/>

@@ -128,12 +128,12 @@ namespace Fuente_de_Luz.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     CuotaId = table.Column<int>(type: "INTEGER", nullable: false),
+                    PagoId = table.Column<int>(type: "INTEGER", nullable: false),
                     Monto = table.Column<float>(type: "REAL", nullable: false),
                     Balance = table.Column<float>(type: "REAL", nullable: false),
                     Descuento = table.Column<float>(type: "REAL", nullable: false),
                     NumCuotas = table.Column<int>(type: "INTEGER", nullable: false),
-                    Total = table.Column<float>(type: "REAL", nullable: false),
-                    PagoId = table.Column<int>(type: "INTEGER", nullable: true)
+                    Total = table.Column<float>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -143,7 +143,7 @@ namespace Fuente_de_Luz.Migrations
                         column: x => x.PagoId,
                         principalTable: "Pagos",
                         principalColumn: "PagoId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -187,7 +187,7 @@ namespace Fuente_de_Luz.Migrations
                     VentaId = table.Column<int>(type: "INTEGER", nullable: false),
                     Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
                     NumCuota = table.Column<int>(type: "INTEGER", nullable: false),
-                    Valor = table.Column<int>(type: "INTEGER", nullable: false),
+                    Valor = table.Column<float>(type: "REAL", nullable: false),
                     Monto = table.Column<float>(type: "REAL", nullable: false),
                     Balence = table.Column<float>(type: "REAL", nullable: false),
                     VentasVentaId = table.Column<int>(type: "INTEGER", nullable: true)
