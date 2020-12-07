@@ -11,12 +11,12 @@ Breve paseo introductorio al programa donde observaremos cada ventana y sus func
 Usuario: admin
 Contraseña:12345
 ##  LogIn
-Aqui simplemente ingresas tu nombre de usuario y tu contraseña, click en ingresar. 
+Aquí simplemente ingresas tu nombre de usuario y tu contraseña, click en ingresar. 
 ![](https://github.com/crismeyrig/Fuente-de-Luz/blob/master/Resources/CapLogin.png)
-## Menu Principal 
+## Menú Principal 
 Aquí encontrarás las dos opciones principales que te abrirán todas las ventanas ( Registros y Consultas).
 ![](https://github.com/crismeyrig/Fuente-de-Luz/blob/master/Resources/MenuPrincipal.png)
-## Opciones Del Menu Principal 
+## Opciones Del Menú Principal 
 Échale un vistazo a todas las opciones que encontraras en el menú.
 ![](https://github.com/crismeyrig/Fuente-de-Luz/blob/master/Resources/OpcionRegistros.png)
 ![](https://github.com/crismeyrig/Fuente-de-Luz/blob/master/Resources/OpcionConsultas.png)
@@ -43,7 +43,7 @@ Aquí podrás registar las ventas que se realicen.
 Aquí podras agregar el pago efectuado por el cliente con sus detalles.
 ![](https://github.com/crismeyrig/Fuente-de-Luz/blob/master/Resources/CapRegistroPagos.png)
 # Consultas 
-Aquí encontraras una consulta por cada registro y diversos filtros que te llevara justo a tu necesidad.
+Aquí encontraras una consulta por cada registro y diversos filtros que te llevará justo a tu respuesta.
 ![](https://github.com/crismeyrig/Fuente-de-Luz/blob/master/Resources/ConsuClientes.png)
 ![](https://github.com/crismeyrig/Fuente-de-Luz/blob/master/Resources/ConsuUsuario.png)
 ![](https://github.com/crismeyrig/Fuente-de-Luz/blob/master/Resources/ConsuReferidos.png)
