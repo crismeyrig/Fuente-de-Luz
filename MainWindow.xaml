@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fuente_de_Luz"
         mc:Ignorable="d"
-        Title="Menu Principal" Height="400" Width="300"   Icon="/Resources/Descanso.png">
+        Title="Menu Principal" Height="400" Width="500" Icon="/Resources/Home.png">
     <Grid>
         <StackPanel>
             <!-- MENU ITEMS -->
@@ -116,7 +116,12 @@
                    
                 </MenuItem>
             </Menu>
-            
+            <!--——————————————————————————————————————————————[ MENU PRINCIPAL ]——————————————————————————————————————————————-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="/Resources/Descanso.png" Width="100" Height="200"/>
+            <Label Content="Menú Principal" FontWeight="Bold" Height="50" FontSize="36" HorizontalAlignment="Center" />
+            <!--——————————————————————————————————————————————[ INFORMACION ]——————————————————————————————————————————————-->
+        </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

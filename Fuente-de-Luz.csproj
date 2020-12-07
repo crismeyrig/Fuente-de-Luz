@@ -39,6 +39,7 @@
               <None Remove="Resources/Ventas.png"/>
               <None Remove="Resources/Propiedades.png"/>
               <None Remove="Resources/Home.png"/>
+              <None Remove="Resources/Descanso.png"/>
             
             
           </ItemGroup>
@@ -63,6 +64,7 @@
             <Resource Include="Resources/Ventas.png"/>
             <Resource Include="Resources/Propiedades.png"/>
             <Resource Include="Resources/Home.png"/>
+            <Resource Include="Resources/Descanso.png"/>
 
             </ItemGroup>
 
